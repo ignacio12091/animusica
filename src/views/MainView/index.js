@@ -1,13 +1,43 @@
 import React from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import Header from './../../components/MainView/Header';
+import Sidebar from './../../components/MainView/Sidebar';
+import Home from './../../components/MainView/Home';
+import Search from './../../components/MainView/Search';
+import Playlists from './../../components/MainView/Playlists';
 
 class MainView extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            view: <Home />
+        };
+      }
+    
+    cambiarVista(nuevaVista) {
+        switch(nuevaVista) {
+            case "Home":
+                this.setState({ view: <Home /> });
+                break;
+            case "Search":
+                    this.setState({ view: <Search /> });
+                    break;
+            case "Playlists":
+                    this.setState({ view: <Playlists /> });
+                    break;
+            default:
+                break;
+        }
+    }
+
     render() {
       return (
         <div className="container-fluid" style={{ padding: 0 }}>
-            <Header />
+            <Sidebar cambiarVista={(nuevaVista) => { this.cambiarVista(nuevaVista) }} />
+            <div style={{ paddingLeft: '25%' }}>
+                {this.state.view}
+            </div>            
         </div>
       );
     }
