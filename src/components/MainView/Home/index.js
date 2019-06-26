@@ -7,7 +7,7 @@ import song1 from './../../../assets/darkSideOfTheMoon.jpg';
 class Home extends React.Component {
     render() {
       return (
-        <div className="container-fluid bg-dark" style={{ padding: 0, height: '100vh', textAlign: 'center', paddingTop: '5%' }}>
+        <div className="container-fluid bg-dark" style={{ padding: 0, textAlign: 'center', paddingTop: '5%' }}>
             <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between', paddingLeft: '10%', paddingRight: '10%' }} role="group" aria-label="Basic example">
                 <button type="button" className="gen-button">ROCK</button>
                 <button type="button" className="gen-button">RAP</button>
