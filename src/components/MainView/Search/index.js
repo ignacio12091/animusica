@@ -18,7 +18,7 @@ class Search extends React.Component {
 
     render() {
       return (
-        <div className="container-fluid" style={{ padding: 0, backgroundColor: '#352b2b', height: '100vh' }}>
+        <div className="container-fluid" style={{ padding: 0, height: '100vh' }}>
             <input type="text" className="bg-dark textInput" placeholder="Buscar" value={this.state.value} onChange={this.handleChange} />
         </div>
       );

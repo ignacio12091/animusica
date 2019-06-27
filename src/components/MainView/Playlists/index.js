@@ -7,7 +7,7 @@ import song1 from './../../../assets/song2.jpg';
 class Playlists extends React.Component {
     render() {
       return (
-        <div className="container-fluid" style={{ padding: 0, textAlign: 'center', paddingTop: '5%', backgroundColor: '#352b2b' }}>
+        <div className="container-fluid" style={{ padding: 0, textAlign: 'center', paddingTop: '5%' }}>
             <h1 className="" style={{ color: 'white' }}>Mis playlists</h1>
             <div style={{ width: '100%', marginTop: '5%', paddingLeft: '5%', paddingRight: '5%', display: 'flex', justifyContent: 'space-between' }}>
 				<div class="" style={{ width: '20%' }}>

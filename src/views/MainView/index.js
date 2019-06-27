@@ -5,13 +5,14 @@ import Sidebar from './../../components/MainView/Sidebar';
 import Home from './../../components/MainView/Home';
 import Search from './../../components/MainView/Search';
 import Playlists from './../../components/MainView/Playlists';
+import UserSettings from './../UserSettings';
 
 class MainView extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            view: <Playlists />
+            view: <UserSettings />
         };
       }
     
@@ -26,6 +27,9 @@ class MainView extends React.Component {
             case "Playlists":
                     this.setState({ view: <Playlists /> });
                     break;
+            case "UserSettings":
+            this.setState({ view: <UserSettings /> });
+            break;
             default:
                 break;
         }

@@ -29,7 +29,7 @@ class Sidebar extends React.Component {
                         {this.state.isLoggedIn ?
                             <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
                                 <img src={profileImage} alt="profile" style={{ borderRadius: 100, width: '40%' }} />
-                                <button className="profileName" style={{ fontSize: 14 }}>Cristian Mello</button>
+                                <button className="profileName" style={{ fontSize: 14 }} onClick={() => { this.props.cambiarVista("UserSettings") }} >Cristian Mello</button>
                             </div>
                         :
                             <div className="d-flex flex-column">
