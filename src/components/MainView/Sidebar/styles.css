@@ -68,3 +68,15 @@ body {
   width: 25%;
   color: white;
 }
+
+.profileName {
+  outline: 0 !important;
+  border: none;
+  background: none;
+  color: white;
+}
+
+.profileName:hover {
+  color: #818181;
+  transition: 0.5s;
+}
