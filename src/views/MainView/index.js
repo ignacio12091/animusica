@@ -11,7 +11,7 @@ class MainView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            view: <Home />
+            view: <Playlists />
         };
       }
     

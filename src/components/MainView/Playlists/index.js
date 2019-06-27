@@ -6,8 +6,8 @@ import 'bootstrap/dist/js/bootstrap.js';
 class Playlists extends React.Component {
     render() {
       return (
-        <div className="container-fluid bg-dark" style={{ padding: 0, height: '100vh' }}>
-            <h1>Playlists</h1>
+        <div className="container-fluid" style={{ padding: 0, textAlign: 'center', paddingTop: '5%', backgroundColor: '#352b2b' }}>
+            <h1 className="" style={{ color: 'white' }}>Mis playlists</h1>
         </div>
       );
     }
