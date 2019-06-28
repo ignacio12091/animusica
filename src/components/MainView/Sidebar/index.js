@@ -3,7 +3,7 @@ import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import logo from './../../../assets/logo.png';
-import profileImage from './../../../assets/profileImage.png';
+import profileImage from './../../../assets/profileImage.PNG';
 
 class Sidebar extends React.Component {
 
@@ -11,7 +11,7 @@ class Sidebar extends React.Component {
         super(props);
         this.state = {
             modalContent: false,
-            isLoggedIn: true,
+            isLoggedIn: false,
         };
     }
 
@@ -28,7 +28,7 @@ class Sidebar extends React.Component {
                     <div className="bottom-box d-flex flex-column">
                         {this.state.isLoggedIn ?
                             <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
-                                <img src={profileImage} alt="profile" style={{ borderRadius: 100, width: '40%' }} />
+                                <img src={profileImage} alt="profile" style={{ borderRadius: 250, width: '40%' }} />
                                 <button className="profileName" style={{ fontSize: 14 }} onClick={() => { this.props.cambiarVista("UserSettings") }} >Cristian Mello</button>
                             </div>
                         :

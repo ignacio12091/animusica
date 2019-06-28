@@ -6,13 +6,15 @@ import Home from './../../components/MainView/Home';
 import Search from './../../components/MainView/Search';
 import Playlists from './../../components/MainView/Playlists';
 import UserSettings from './../UserSettings';
+import UserProfile from './../UserProfile';
+import ArtistProfile from './../ArtistProfile';
 
 class MainView extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            view: <UserSettings />
+            view: <ArtistProfile />
         };
       }
     
