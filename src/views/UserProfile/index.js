@@ -2,10 +2,10 @@ import React from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import song1 from './../../assets/song2.jpg';
-import songImage from './../../assets/profileImage.PNG';
+import songImage from './../../assets/profileImage.png';
 
 class UserProfile extends React.Component {
-    
+
     render() {
       return (
         <div className="container-fluid" style={{ textAlign: 'center', paddingTop: '5%' }} >
@@ -23,7 +23,7 @@ class UserProfile extends React.Component {
 				<div class="" style={{ width: '20%' }}>
 					<img src={song1} class="card-img-top" alt="..." />
 					<div class="" style={{ backgroundColor: 'rgb(30,30,30)', borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-						<p class="" style={{ color: 'white' }}>Cumbias</p>
+						<p class="" style={{ color: 'white', font: 'Purisa'}}>Cumbias</p>
 					</div>
 				</div>
 				<div class="" style={{ width: '20%' }}>

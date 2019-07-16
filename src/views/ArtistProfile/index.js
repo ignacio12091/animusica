@@ -10,7 +10,7 @@ import cartas from './../../assets/cartas.PNG';
 import abranPaso from './../../assets/abranPaso.PNG';
 
 class ArtistProfile extends React.Component {
-    
+
     render() {
       return (
         <div className="container-fluid" style={{ textAlign: 'center', paddingTop: '5%' }} >

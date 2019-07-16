@@ -9,9 +9,21 @@ sombra:hover {
 }
 
 .gen-button {
-    padding: 0; 
+    padding: 0;
     border: none;
     background: none;
     color: white;
     font-weight: bold;
+}
+
+button:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5);
+  text-shadow: -2px 2px 4px #81fc5b;
+  color: white!important;
+}
+
+.fuente{
+  font-family: monospace!important;
 }

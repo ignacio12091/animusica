@@ -44,14 +44,19 @@ const elementos = [hola, hola, hola]
 class Home extends React.Component {
     render() {
       return (
-        <div className="container-fluid" style={{ padding: 0, textAlign: 'center', paddingTop: '5%' }}>
-            <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between', paddingLeft: '10%', paddingRight: '10%' }} role="group" aria-label="Basic example">
-                <button type="button" className="gen-button">ROCK</button>
+        <div className="container-fluid" style={{textAlign: 'center'}}>
+            <div class="row" style={{ position: 'relative', display: 'flex', justifyContent: 'space-between',height: '150px', backgroundColor: 'rgb(5,5,5)', paddingLeft:'10%', paddingRight: '10%' }} role="group" aria-label="Basic example">
+                <button type="button" className="gen-button fuente">ROCK</button>
                 <button type="button" className="gen-button">RAP</button>
                 <button type="button" className="gen-button">POP</button>
                	<button type="button" className="gen-button">CUMBIA</button>
+								<button type="button" className="gen-button">BACHATRAP</button>
+
             </div>
-			{elementos}
+<div>
+{elementos}
+</div>
+
         </div>
       );
     }

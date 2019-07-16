@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import songImage from './../../assets/profileImage.PNG';
+import songImage from './../../assets/profileImage.png';
 
 class UserSettings extends React.Component {
-    
+
     render() {
       return (
         <div className="container-fluid" style={{ textAlign: 'center', paddingTop: '5%' }} >
@@ -18,7 +18,7 @@ class UserSettings extends React.Component {
                     </button>
                 </h5>
                 <h5 style={{ color: 'white', marginTop: '3%' }}>
-                    cristianmello@gmail.com 
+                    cristianmello@gmail.com
                     <button className="buttonNoBackground">
                         <span style={{ fontSize: 14, color: '#00aae4' }}> (Editar)</span>
                     </button>
