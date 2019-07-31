@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import song1 from './../../assets/song2.jpg';
-import songImage from './../../assets/profileImage.PNG';
+import songImage from './../../assets/profileImage.png';
 
 class UserProfile extends React.Component {
     

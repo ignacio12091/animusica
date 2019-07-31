@@ -3,7 +3,7 @@ import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import logo from './../../../assets/logo.png';
-import profileImage from './../../../assets/profileImage.PNG';
+import profileImage from './../../../assets/profileImage.png';
 
 class Sidebar extends React.Component {
 

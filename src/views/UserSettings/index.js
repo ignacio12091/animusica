@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import songImage from './../../assets/profileImage.PNG';
+import songImage from './../../assets/profileImage.png';
 
 class UserSettings extends React.Component {
     
@@ -11,7 +11,7 @@ class UserSettings extends React.Component {
             <h1 style={{ color: 'white' }} >Configuración de usuario</h1>
             <img style={{ borderRadius: 200 }} src={songImage} alt="profile" />
             <div style={{ marginTop: '5%' }}>
-                <h5 style={{ color: 'white', }}>
+                <h5 style={{ color: 'white' }}>
                     Cristian Mello
                     <button className="buttonNoBackground">
                         <span style={{ fontSize: 14, color: '#00aae4' }}> (Editar)</span>
