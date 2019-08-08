@@ -19,13 +19,12 @@ class Sidebar extends React.Component {
         return (
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div class="sidenav">
-                    <img src={logo} alt="app logo" className="logoImage" />
                     <div class="btn-group-vertical button-group" role="group" aria-label="Basic example">
                         <button className="sideButtons" onClick={() => { this.props.cambiarVista("Home") }}>Inicio</button>
                         <button className="sideButtons" onClick={() => { this.props.cambiarVista("Search") }}>Buscar</button>
                         <button className="sideButtons" onClick={() => { this.props.cambiarVista("Playlists") }}>Mis playlist</button>
                     </div>
-                    <div className="bottom-box d-flex flex-column">
+{/*                     <div className="bottom-box d-flex flex-column">
                         {this.state.isLoggedIn ?
                             <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
                                 <img src={profileImage} alt="profile" style={{ borderRadius: 250, width: '40%' }} />
@@ -37,9 +36,9 @@ class Sidebar extends React.Component {
                                 <button type="button" class="btn btn-light d-block" style={{ marginTop: 16, borderRadius: 20 }}  data-toggle="modal" data-target="#login-register-modal" onClick={ () => { this.setState({ modalContent: true }) } }>Registrarse</button>
                             </div>
                         }
-                    </div>
+                    </div> */}
                 </div>
-                <div class="modal fade" id="login-register-modal" tabindex="-1" role="dialog" aria-labelledby="login-register-modal" aria-hidden="true">
+                {/* <div class="modal fade" id="login-register-modal" tabindex="-1" role="dialog" aria-labelledby="login-register-modal" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header" style={{ justifyContent: 'center' }}>
@@ -90,7 +89,7 @@ class Sidebar extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         );
     }

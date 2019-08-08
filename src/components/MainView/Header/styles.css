@@ -1,0 +1,32 @@
+body{
+    padding-top: 90px;
+}
+
+.searchBarButton {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+}
+
+.rightButtons {
+    border-width: 2px;
+    margin-left: 2%;
+    color: #ff0080;
+    border-color: #ff0080;
+} 
+
+.rightButtons:hover {
+    background: #ff0080;
+    color: white;
+}
+
+.searchBarIcon {
+    color: #ff0080;
+}
+
+.navBar {
+    background-color: black;
+    padding: 0px;
+    margin: 0px;
+}

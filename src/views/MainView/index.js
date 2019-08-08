@@ -8,13 +8,14 @@ import Playlists from './../../components/MainView/Playlists';
 import UserSettings from './../UserSettings';
 import UserProfile from './../UserProfile';
 import ArtistProfile from './../ArtistProfile';
+import Header from './../../components/MainView/Header';
 
 class MainView extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            view: <ArtistProfile />
+            view: <Home />
         };
       }
     
@@ -24,26 +25,27 @@ class MainView extends React.Component {
                 this.setState({ view: <Home /> });
                 break;
             case "Search":
-                    this.setState({ view: <Search /> });
-                    break;
+                this.setState({ view: <Search /> });
+                break;
             case "Playlists":
-                    this.setState({ view: <Playlists /> });
-                    break;
+                this.setState({ view: <Playlists /> });
+                break;
             case "UserSettings":
-            this.setState({ view: <UserSettings /> });
+                this.setState({ view: <UserSettings /> });
             break;
             default:
-                break;
+            break;
         }
     }
 
     render() {
       return (
         <div className="container-fluid" style={{ padding: 0 }}>
+            <Header />
             <Sidebar cambiarVista={(nuevaVista) => { this.cambiarVista(nuevaVista) }} />
-            <div style={{ paddingLeft: '25%' }}>
+            <div style={{ paddingLeft: '20%' }}>
                 {this.state.view}
-            </div>            
+            </div>
         </div>
       );
     }
