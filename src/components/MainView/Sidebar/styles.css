@@ -11,6 +11,7 @@ body {
   background-color: rgb(0,0,0);
   overflow-x: hidden;
   padding-top: 16px;
+  padding-left: 2%;
 }
 
 .sidenav a {
@@ -21,9 +22,9 @@ body {
   display: block;
 }
 
-.button-group button:hover {
+.sideButtons:hover {
   color: #cc0066;
-  margin-left: 2%;
+  margin-left: 5%;
 }
 
 .main {
@@ -52,11 +53,6 @@ body {
 .logoImage {
   width: 70%;
   margin-left: 9%;
-}
-
-.button-group {
-  width: 100%;
-  padding-left: 12%;
 }
 
 .bottom-box {

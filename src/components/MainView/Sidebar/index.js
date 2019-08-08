@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import { Link } from 'react-router-dom';
 import logo from './../../../assets/logo.png';
 import profileImage from './../../../assets/profileImage.png';
 
@@ -19,11 +20,9 @@ class Sidebar extends React.Component {
         return (
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div class="sidenav">
-                    <div class="btn-group-vertical button-group" role="group" aria-label="Basic example">
-                        <button className="sideButtons" onClick={() => { this.props.cambiarVista("Home") }}>Inicio</button>
-                        <button className="sideButtons" onClick={() => { this.props.cambiarVista("Search") }}>Buscar</button>
-                        <button className="sideButtons" onClick={() => { this.props.cambiarVista("Playlists") }}>Mis playlist</button>
-                    </div>
+                        <Link to="/"><span className="sideButtons">Inicio</span></Link>
+                        <Link to="/profile"><span className="sideButtons">Mis Playlists</span></Link>
+                        <Link to="/settings"><span className="sideButtons">Contacto</span></Link>
 {/*                     <div className="bottom-box d-flex flex-column">
                         {this.state.isLoggedIn ?
                             <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
