@@ -21,7 +21,7 @@ class Sidebar extends React.Component {
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div class="sidenav">
                         <Link to="/"><span className="sideButtons">Inicio</span></Link>
-                        <Link to="/profile"><span className="sideButtons">Mis Playlists</span></Link>
+                        <Link to="/playlists"><span className="sideButtons">Mis Playlists</span></Link>
                         <Link to="/settings"><span className="sideButtons">Contacto</span></Link>
 {/*                     <div className="bottom-box d-flex flex-column">
                         {this.state.isLoggedIn ?

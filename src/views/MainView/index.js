@@ -1,53 +1,70 @@
 import React from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import Sidebar from './../../components/MainView/Sidebar';
-import Home from './../../components/MainView/Home';
-import Search from './../../components/MainView/Search';
-import Playlists from './../../components/MainView/Playlists';
-import UserSettings from './../UserSettings';
-import UserProfile from './../UserProfile';
-import ArtistProfile from './../ArtistProfile';
-import Header from './../../components/MainView/Header';
+import Sidebar from './../../components/Global/Sidebar';
+import Header from './../../components/Global/Header';
+import song1 from './../../assets/darkSideOfTheMoon.jpg';
 
-class MainView extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            view: <Home />
-        };
-      }
-    
-    cambiarVista(nuevaVista) {
-        switch(nuevaVista) {
-            case "Home":
-                this.setState({ view: <Home /> });
-                break;
-            case "Search":
-                this.setState({ view: <Search /> });
-                break;
-            case "Playlists":
-                this.setState({ view: <Playlists /> });
-                break;
-            case "UserSettings":
-                this.setState({ view: <UserSettings /> });
-            break;
-            default:
-            break;
-        }
-    }
-
-    render() {
-      return (
-        <div className="container-fluid" style={{ padding: 0 }}>
-            <Header />
-            <Sidebar cambiarVista={(nuevaVista) => { this.cambiarVista(nuevaVista) }} />
-            <div style={{ paddingLeft: '20%' }}>
-                {this.state.view}
+const hola = (
+    <div style={{ width: '100%', marginTop: '5%', paddingLeft: '5%', paddingRight: '5%', display: 'flex', justifyContent: 'space-between' }}>
+        <div class="" style={{ width: '15%' }}>
+            <img src={song1} class="card-img-top" alt="..." />
+            <div class="" style={{ backgroundColor: 'rgb(30,30,30)', borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                <p style={{ color: 'rgb(230, 230, 230)' }} >Dark side of the moon</p>
             </div>
         </div>
-      );
+        <div class="" style={{ width: '15%' }}>
+            <img src={song1} class="card-img-top" alt="..." />
+            <div class="" style={{ backgroundColor: 'rgb(30,30,30)', borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                <p style={{ color: 'rgb(230, 230, 230)' }} >Dark side of the moon</p>
+            </div>
+        </div>
+        <div class="" style={{ width: '15%' }}>
+            <img src={song1} class="card-img-top" alt="..." />
+            <div class="" style={{ backgroundColor: 'rgb(30,30,30)', borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                <p style={{ color: 'rgb(230, 230, 230)' }} >Dark side of the moon</p>
+            </div>
+        </div>
+        <div class="" style={{ width: '15%' }}>
+            <img src={song1} class="card-img-top" alt="..." />
+            <div class="" style={{ backgroundColor: 'rgb(30,30,30)', borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                <p style={{ color: 'rgb(230, 230, 230)' }} >Dark side of the moon</p>
+            </div>
+        </div>
+        <div class="" style={{ width: '15%' }}>
+            <img src={song1} class="card-img-top" alt="..." />
+            <div class="" style={{ backgroundColor: 'rgb(30,30,30)', borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                <p style={{ color: 'rgb(230, 230, 230)' }} >Dark side of the moon</p>
+            </div>
+        </div>
+    </div>
+);
+
+const elementos = [hola, hola, hola, hola]
+
+/* sessionStorage.setItem('myData', "nachox");
+
+console.log(sessionStorage.getItem('myData')); */
+
+class MainView extends React.Component {
+    render() {
+        return (
+            <div>
+                <Header />
+                <Sidebar cambiarVista={(nuevaVista) => { this.cambiarVista(nuevaVista) }} />
+                <div style={{ paddingLeft: '20%' }}>
+                    <div className="container-fluid" style={{ padding: 0, textAlign: 'center', paddingTop: '5%' }}>
+                        <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between', paddingLeft: '10%', paddingRight: '10%' }} role="group" aria-label="Basic example">
+                            <button type="button" className="gen-button">ROCK</button>
+                            <button type="button" className="gen-button">RAP</button>
+                            <button type="button" className="gen-button">POP</button>
+                            <button type="button" className="gen-button">CUMBIA</button>
+                        </div>
+                        {elementos}
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 

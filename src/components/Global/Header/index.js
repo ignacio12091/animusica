@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles.css';
 import logo from './../../../assets/logo.png';
@@ -27,9 +28,11 @@ class Header extends React.Component {
                     </div>
                 </div>
                 <div class="col-3">
-                    <button class="btn rightButtons">
-                        Iniciar sesión
-                    </button>
+                    <Link to="/login">
+                        <button class="btn rightButtons">
+                            Iniciar sesión
+                        </button>
+                    </Link>
                     <button class="btn rightButtons">
                         Registrarse
                     </button>
