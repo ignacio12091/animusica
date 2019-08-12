@@ -12,17 +12,17 @@ body{
 .rightButtons {
     border-width: 2px;
     margin-left: 2%;
-    color: #ff0080;
-    border-color: #ff0080;
+    color: #ff7e00;
+    border-color: #ff7e00;
 } 
 
 .rightButtons:hover {
-    background: #ff0080;
+    background: #ff7e00;
     color: white;
 }
 
 .searchBarIcon {
-    color: #ff0080;
+    color: #ff7e00;
 }
 
 .navBar {

@@ -26,7 +26,7 @@ class Header extends React.Component {
                                     console.log("match: ", this.props)
                                 }
                             </button>
-                            <input class="form-control ml-sm-2 w-75" name="data" type="search" placeholder="Search" aria-label="Search" />
+                            <input class="form-control ml-sm-2 w-75" name="data" type="search" placeholder="Buscar" aria-label="Search" />
                         </form>
                     </div>
                 </div>

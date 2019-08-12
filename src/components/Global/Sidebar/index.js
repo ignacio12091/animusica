@@ -17,13 +17,20 @@ class Sidebar extends React.Component {
     }
 
     render() {
+        /*
+            sessionStorage.setItem('myData', "nachox");
+            console.log(sessionStorage.getItem('myData'));
+            const isLoggedIn = sessionStorage.getItem('userData') ? true : false;
+            console.log('session: ', isLoggedIn);
+        */
         return (
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div class="sidenav">
                         <NavLink activeClassName="selected" exact to="/"><span className="sideButtons">Inicio</span></NavLink>
+                        <NavLink activeClassName="selected" exact to="/search"><span className="sideButtons">Buscar</span></NavLink>
                         <NavLink activeClassName="selected" exact to="/playlists"><span className="sideButtons">Mis Playlists</span></NavLink>
-                        <NavLink activeClassName="selected" exact to="/settings"><span className="sideButtons">Contacto</span></NavLink>
-{/*                     <div className="bottom-box d-flex flex-column">
+                {/*                     
+                        <div className="bottom-box d-flex flex-column">
                         {this.state.isLoggedIn ?
                             <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
                                 <img src={profileImage} alt="profile" style={{ borderRadius: 250, width: '40%' }} />
