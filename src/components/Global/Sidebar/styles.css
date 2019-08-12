@@ -76,3 +76,8 @@ body {
   color: #818181;
   transition: 0.5s;
 }
+
+.selected span{
+  color: #cc0066;
+  margin-left: 5%;
+}

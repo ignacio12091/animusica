@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from './../../../assets/logo.png';
 import profileImage from './../../../assets/profileImage.png';
 
@@ -20,9 +20,9 @@ class Sidebar extends React.Component {
         return (
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div class="sidenav">
-                        <Link to="/"><span className="sideButtons">Inicio</span></Link>
-                        <Link to="/playlists"><span className="sideButtons">Mis Playlists</span></Link>
-                        <Link to="/settings"><span className="sideButtons">Contacto</span></Link>
+                        <NavLink activeClassName="selected" exact to="/"><span className="sideButtons">Inicio</span></NavLink>
+                        <NavLink activeClassName="selected" exact to="/playlists"><span className="sideButtons">Mis Playlists</span></NavLink>
+                        <NavLink activeClassName="selected" exact to="/settings"><span className="sideButtons">Contacto</span></NavLink>
 {/*                     <div className="bottom-box d-flex flex-column">
                         {this.state.isLoggedIn ?
                             <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >

@@ -55,10 +55,10 @@ class MainView extends React.Component {
                 <div style={{ paddingLeft: '20%' }}>
                     <div className="container-fluid" style={{ padding: 0, textAlign: 'center', paddingTop: '5%' }}>
                         <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between', paddingLeft: '10%', paddingRight: '10%' }} role="group" aria-label="Basic example">
-                            <button type="button" className="gen-button">ROCK</button>
-                            <button type="button" className="gen-button">RAP</button>
-                            <button type="button" className="gen-button">POP</button>
-                            <button type="button" className="gen-button">CUMBIA</button>
+                            <button type="button" className="music-style-btn">ROCK</button>
+                            <button type="button" className="music-style-btn">RAP</button>
+                            <button type="button" className="music-style-btn">POP</button>
+                            <button type="button" className="music-style-btn">CUMBIA</button>
                         </div>
                         {elementos}
                     </div>

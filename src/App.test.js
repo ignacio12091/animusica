@@ -1,6 +1,4 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import routing from './routing';
 
 it('renders without crashing', () => {

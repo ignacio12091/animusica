@@ -22,8 +22,11 @@ class Header extends React.Component {
                         <form class="form-inline my-2 my-lg-0 w-100 justify-content-center">
                             <button class="searchBarButton material-icons searchBarIcon">
                                 search
+                                {
+                                    console.log("match: ", this.props)
+                                }
                             </button>
-                            <input class="form-control ml-sm-2 w-75" type="search" placeholder="Search" aria-label="Search" />
+                            <input class="form-control ml-sm-2 w-75" name="data" type="search" placeholder="Search" aria-label="Search" />
                         </form>
                     </div>
                 </div>
