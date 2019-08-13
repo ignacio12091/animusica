@@ -2,7 +2,6 @@ import React from 'react';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Sidebar from './../../components/Global/Sidebar';
-import Header from './../../components/Global/Header';
 import song1 from './../../assets/song2.jpg';
 import songImage from './../../assets/profileImage.png';
 
@@ -11,7 +10,6 @@ class UserProfile extends React.Component {
     render() {
       return (
 		<div className="container-fluid" style={{ padding: 0 }}>
-			<Header />
 			<Sidebar cambiarVista={(nuevaVista) => { this.cambiarVista(nuevaVista) }} />
 			<div style={{ paddingLeft: '20%' }}>
 				<div className="container-fluid" style={{ textAlign: 'center', paddingTop: '5%' }} >

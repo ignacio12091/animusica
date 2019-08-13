@@ -3,14 +3,12 @@ import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import song1 from './../../assets/song2.jpg';
-import Header from './../../components/Global/Header';
 import Sidebar from './../../components/Global/Sidebar';
 
 class Playlists extends React.Component {
     render() {
       return (
 		<div>
-			<Header />
 			<Sidebar cambiarVista={(nuevaVista) => { this.cambiarVista(nuevaVista) }} />
 			<div style={{ paddingLeft: '20%' }}>
 				<div className="container-fluid" style={{ padding: 0, textAlign: 'center', paddingTop: '5%' }}>

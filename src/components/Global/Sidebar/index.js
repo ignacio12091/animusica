@@ -26,6 +26,7 @@ class Sidebar extends React.Component {
         return (
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div class="sidenav">
+                        <img src={logo} alt="app logo" className="logoImage" />
                         <NavLink activeClassName="selected" exact to="/"><span className="sideButtons">Inicio</span></NavLink>
                         <NavLink activeClassName="selected" exact to="/search"><span className="sideButtons">Buscar</span></NavLink>
                         <NavLink activeClassName="selected" exact to="/playlists"><span className="sideButtons">Mis Playlists</span></NavLink>

@@ -1,0 +1,12 @@
+.textInput {
+    outline: 0 !important;
+    border: none;
+    color: white; 
+    width: 100%;
+    height: 10%;
+    font-size: 50px;
+}
+
+body {
+    background-color: rgb(15,15,15);
+}
