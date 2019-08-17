@@ -1,22 +1,22 @@
 import React from 'react';
 import Sidebar from './../../components/Global/Sidebar';
-import logo from './../../assets/logo.png';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
 class Search extends React.Component {
 
-        constructor(props) {
-            super(props);
-            this.state = {value: ''};
-        
-            this.handleChange = this.handleChange.bind(this);
-        }
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
     
-        handleChange(event) {
-            this.setState({value: event.target.value});
-        }
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+        console.log(this.state.value);
+    }
 
     render() {
       return (
