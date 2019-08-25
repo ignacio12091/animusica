@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.js';
 import { NavLink } from 'react-router-dom';
 import logo from './../../../assets/logo.png';
 import profileImage from './../../../assets/profileImage.png';
+import axios from 'axios';
 
 class Sidebar extends React.Component {
 
@@ -13,7 +14,16 @@ class Sidebar extends React.Component {
         this.state = {
             modalContent: false,
             isLoggedIn: false,
+            audio: null,
         };
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({ audio: nextProps.song }, function(){
+            this.refs.audio.pause();
+            this.refs.audio.load();
+            this.refs.audio.play();
+        })
     }
 
     render() {
@@ -45,6 +55,16 @@ class Sidebar extends React.Component {
                         }
                     </div> */}
                 </div>
+                { this.state.audio ? 
+                    <div className="player">
+                        <audio controls ref="audio">
+                            <source src={this.state.audio} type="audio/ogg" />
+                            <source src={this.state.audio} type="audio/mpeg" />
+                        </audio>
+                    </div>
+                :
+                    null
+                }
                 {/* <div class="modal fade" id="login-register-modal" tabindex="-1" role="dialog" aria-labelledby="login-register-modal" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
