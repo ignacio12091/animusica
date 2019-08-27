@@ -17,11 +17,12 @@ class Sidebar extends React.Component {
     }
 
     componentWillReceiveProps(nextProps){
-        this.setState({ audio: nextProps.song }, function(){
-            this.refs.audio.pause();
-            this.refs.audio.load();
-            this.refs.audio.play();
-        })
+        if(nextProps.song !== "") {       
+            this.setState({ audio: nextProps.song }, function(){
+                this.refs.audio.pause();
+                this.refs.audio.load();
+                this.refs.audio.play();
+        })}
     }
 
     render() {

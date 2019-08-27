@@ -1,7 +1,10 @@
 import React from 'react';
+import Loader from 'react-loader-spinner'
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Sidebar from './../../components/Global/Sidebar';
+import axios from 'axios';
 
 /* sessionStorage.setItem('myData', "nachox");
 
@@ -13,9 +16,28 @@ class MainView extends React.Component {
         super(props);
         this.state = {
             selectedSong: "",
+            genres: null,
+            errorFetchingGenres: false,
+            isFetchingGenres: false,
         };
 
         this.onPressSong = this.onPressSong.bind(this)
+    }
+
+    componentDidMount() {
+        this.getGenres();
+    }
+
+    getGenres() {
+        this.setState({ isFetchingGenres: true });
+        axios.get('http://localhost/generos')
+            .then((response) => {
+                this.setState({ genres: response.data });
+            })
+            .catch((error) => {
+                this.setState({ errorFetchingGenres: true });
+            })
+        this.setState({ isFetchingGenres: false });
     }
 
     onPressSong(event, recurso) {
@@ -56,37 +78,30 @@ class MainView extends React.Component {
 
     renderGenres() {
         //esto debería venir del servidor con una consulta
-        const genres = [
-            {
-                id: 1,
-                nombre: "ROCK",
-            },
-            {
-                id: 2,
-                nombre: "RAP",
-            },
-            {
-                id: 3,
-                nombre: "POP",
-            },
-            {
-                id: 4,
-                nombre: "CUMBIA",
-            },
-            {
-                id: 5,
-                nombre: "SALSA",
-            },
-        ];
-        const buttons = [];
-        genres.forEach((item) => {
-            buttons.push(
-                <button type="button" className="music-style-btn">
-                    {item.nombre}
-                </button>
+        const response = [];
+        if (this.state.isFetchingGenres) {
+            response.push(
+                <Loader
+                type="Puff"
+                color="#00BFFF"
+                height="100"
+                width="100"
+             />
             );
-        });
-        return(buttons);
+        } else if (this.state.errorFetchingGenres) {
+            console.log("error")
+        } else if (this.state.genres) {
+            const genres = this.state.genres
+            genres.forEach((item) => {
+                response.push(
+                    <button type="button" className="music-style-btn">
+                        {item.nombre}
+                    </button>
+                );
+            });
+        }
+
+        return(response);
     }
 
     render() {
