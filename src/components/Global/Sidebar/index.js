@@ -4,8 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import { NavLink } from 'react-router-dom';
 import logo from './../../../assets/logo.png';
-import profileImage from './../../../assets/profileImage.png';
-import axios from 'axios';
 
 class Sidebar extends React.Component {
 

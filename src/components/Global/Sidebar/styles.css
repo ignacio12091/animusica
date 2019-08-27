@@ -4,7 +4,7 @@ body {
 
 .player {
   height: 10vh;
-  background-color: #818181;
+  background-color: #ff7e00;
   width: 100%;
   position: fixed;
   z-index: 1;
@@ -13,6 +13,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  margin-left: 20%;
+  padding-right: 20%;
 }
   
 .sidenav {
