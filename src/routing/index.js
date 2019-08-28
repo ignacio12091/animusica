@@ -8,12 +8,15 @@ import Login from './../views/Login';
 import Search from './../views/Search';
 import './styles.css';
 
-const ReRoute = () => <Redirect exact from="/home" to="/" />
+const ReRoute = () => <Redirect exact from="/" to="/home/mostvisited" />
 
 const routing = (
     <Router>
         <Switch>
-            <Route path="/" component={MainView} exact />
+            <Route path="/" component={ReRoute} exact />
+            <Route path="/home/:id" component={MainView} exact />
+            <Route path="/home/:id" component={MainView} exact />
+            <Route path="/home/:id" component={MainView} exact />
             <Route path="/home" component={ReRoute} exact />
             <Route path="/playlists" component={Playlists} />
             <Route path="/settings" component={UserSettings} />

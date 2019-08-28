@@ -16,9 +16,10 @@ class Sidebar extends React.Component {
         };
     }
 
-    componentWillReceiveProps(nextProps){
-        if(nextProps.song !== "") {       
-            this.setState({ audio: nextProps.song }, function(){
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.song)
+        if(nextProps.song && nextProps.song !== "") {       
+            this.setState({ audio: 'http://localhost/songs' + nextProps.song }, function(){
                 this.refs.audio.pause();
                 this.refs.audio.load();
                 this.refs.audio.play();
@@ -36,7 +37,7 @@ class Sidebar extends React.Component {
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div class="sidenav">
                         <img src={logo} alt="app logo" className="logoImage" />
-                        <NavLink activeClassName="selected" exact to="/"><span className="sideButtons">Inicio</span></NavLink>
+                        <NavLink activeClassName="selected" to="/home"><span className="sideButtons">Inicio</span></NavLink>
                         <NavLink activeClassName="selected" exact to="/search"><span className="sideButtons">Buscar</span></NavLink>
                         <NavLink activeClassName="selected" exact to="/playlists"><span className="sideButtons">Mis Playlists</span></NavLink>
                 {/*                     
