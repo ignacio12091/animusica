@@ -1,4 +1,5 @@
 import React from 'react';
+import sessionManager from './../../../session/sessionManager';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -35,15 +36,20 @@ class Sidebar extends React.Component {
         */
         return (
             <div className="container-fluid" style={{ padding: 0 }}>
-                <div class="sidenav">
+                <div className="sidenav">
                         <img src={logo} alt="app logo" className="logoImage" />
                         <NavLink activeClassName="selected" to="/home"><span className="sideButtons">Inicio</span></NavLink>
                         <NavLink activeClassName="selected" exact to="/search"><span className="sideButtons">Buscar</span></NavLink>
+{/*                         {sessionManager.isLoggedIn ? 
+                            <NavLink activeClassName="selected" exact to="/search"><span className="sideButtons">Buscar</span></NavLink>
+                            :
+                            <NavLink activeClassName="selected"><button className="sideButtons">Buscar</button></NavLink>
+                        } */}
                         <NavLink activeClassName="selected" exact to="/playlists"><span className="sideButtons">Mis Playlists</span></NavLink>
                 {/*                     
                         <div className="bottom-box d-flex flex-column">
                         {this.state.isLoggedIn ?
-                            <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
+                            <div style={{ textAlign: 'centser', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
                                 <img src={profileImage} alt="profile" style={{ borderRadius: 250, width: '40%' }} />
                                 <button className="profileName" style={{ fontSize: 14 }} onClick={() => { this.props.cambiarVista("UserSettings") }} >Cristian Mello</button>
                             </div>

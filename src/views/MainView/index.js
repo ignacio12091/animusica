@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from 'react-loader-spinner'
 import axios from 'axios';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -52,6 +52,7 @@ class MainView extends React.Component {
                 this.setState({ songs: response.data, isFetchingMostVisited: false });
             })
             .catch((error) => {
+                console.log('error: ', error)
                 this.setState({ errorFetchingMostVisited: true, isFetchingMostVisited: false });
             })
     }
@@ -70,7 +71,7 @@ class MainView extends React.Component {
                                         <button className="song" style={{ width: '19.375vh', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
                                             <img src={item.link_imagen} style={{ height: '15.625vh', borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
                                             <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)' }}>
-                                                {item.nombre}
+                                                {item.nombre} 
                                             </p>
                                         </button>
                                     </li>
@@ -107,7 +108,7 @@ class MainView extends React.Component {
         }
         
         //esto deberia venir del server
-        const songs = [
+/*         const songs = [
             {
                 id: 1,
                 nombre: "The negronis",
@@ -120,7 +121,7 @@ class MainView extends React.Component {
                 linkImagen: "https://i.imgur.com/kj5f6s8.png",
                 linkRecurso: "http://localhost/canciones/2.mp3",
             },
-        ];
+        ]; */
     }
 
     renderGenres() {

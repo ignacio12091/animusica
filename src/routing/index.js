@@ -6,6 +6,7 @@ import Playlists from './../views/Playlists';
 import NotFound from './../views/NotFound';
 import Login from './../views/Login';
 import Search from './../views/Search';
+import Sidebar from './../components/Global/Sidebar';
 import './styles.css';
 
 const ReRoute = () => <Redirect exact from="/" to="/home/mostvisited" />
