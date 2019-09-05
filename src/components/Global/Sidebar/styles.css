@@ -56,7 +56,6 @@ body {
 
 .sideButtons {
   transition: 0.5s;
-  margin-top: 10%;
   padding: 0; 
   border: none;
   background: none;
@@ -96,4 +95,10 @@ body {
 .selected span{
   color: #cc0066;
   margin-left: 5%;
+  padding: 0;
+}
+
+.navLink {
+  padding: 0px;
+  margin: 0px;
 }

@@ -20,11 +20,7 @@ class Search extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.onPressSong = this.onPressSong.bind(this)
     }
-
-    componentDidMount() {
-        this.searchSong("dark")
-    }
-
+    
     handleChange(event) {
         this.setState({textInputValue: event.target.value});
         this.searchSong(event.target.value)
@@ -54,7 +50,6 @@ class Search extends React.Component {
         if(this.state.songs) {
             let response = []
             this.state.songs.forEach(element => {
-                console.log(element)
                 let song = (
                     <button key={element.id} style={{ display: 'flex', flexDirection: 'row', height: '20vh', marginTop: '1vh', marginBottom: '1vh', alignItems: 'center', borderRadius: 4, backgroundColor: 'rgb(30, 30, 30)', width: '100%' }} onClick={(e) => {this.onPressSong(e, element.link_recurso)}}>
                         <img style={{ height: '20vh', }} src={element.link_imagen} alt={element.nombre} />
@@ -68,7 +63,6 @@ class Search extends React.Component {
     }
 
     render() {
-        console.log(this.state)
       return (
         <div>
             <Sidebar song={this.state.selectedSong} />

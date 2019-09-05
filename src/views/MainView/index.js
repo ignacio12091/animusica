@@ -27,8 +27,8 @@ class MainView extends React.Component {
         this.onPressSong = this.onPressSong.bind(this)
     }
 
-    componentDidMount() {
-        switch(this.props.match.params.id) {
+    loadSongs(props) {
+        switch(props.match.params.id) {
             case "mostvisited":
                 this.getMostVisited()
             break;
@@ -41,6 +41,15 @@ class MainView extends React.Component {
             default:
             break;
         }
+    }
+
+    componentDidMount() {
+        this.loadSongs(this.props)
+    }
+
+    componentWillReceiveProps(props) {
+        console.log('props: ', props)
+        this.loadSongs(props)
     }
 
     onPressSong(event, recurso) {
@@ -62,12 +71,10 @@ class MainView extends React.Component {
     getMostVisited() {
         this.setState({ isFetchingMostVisited: true });
         axios.get('http://localhost/mostvisited')
-            .then((response) => {
-                console.log('json: ', response);                
+            .then((response) => {            
                 this.setState({ songs: response.data, isFetchingMostVisited: false });
             })
             .catch((error) => {
-                console.log('error: ', error)
                 this.setState({ errorFetchingMostVisited: true, isFetchingMostVisited: false });
             })
     }
@@ -81,32 +88,27 @@ class MainView extends React.Component {
                         case "mostvisited":
                             this.state.songs.forEach((item) => {
                                 result.push(
-                                    <li key={item.id}>
-                                        <button className="song" style={{ width: '19.375vh', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
-                                            <img src={item.link_imagen} style={{ height: '15.625vh', borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
-                                            <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)' }}>
-                                                {item.nombre} 
-                                            </p>
-                                        </button>
-                                    </li>
+                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
+                                        <img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
+                                        <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%' }}>
+                                            {item.nombre} 
+                                        </p>
+                                    </button>
                                 );
                             });
                             return(result);
                         case "bestranked": 
                             this.state.songs.forEach((item) => {
                                 result.push(
-                                    <li key={item.id}>
-                                        <button className="song" style={{ width: '19.375vh', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
-                                            <img src={item.link_imagen} style={{ height: '15.625vh', borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
-                                            <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)' }}>
-                                                {item.nombre} 
-                                            </p>
-                                        </button>
-                                    </li>
+                                    <button className="song" style={{ width: '30%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '2.5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
+                                        <img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
+                                        <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%' }}>
+                                            {item.nombre} 
+                                        </p>
+                                    </button>
                                 );
                             });
                             return(result);
-                            return("hola");
                         case "genres": 
                             console.log('genres')
                             break;
@@ -167,11 +169,9 @@ class MainView extends React.Component {
                         <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between', paddingLeft: '10%', paddingRight: '10%' }} role="group" aria-label="Basic example">
                             {this.renderTopOptions()}
                         </div>
-{/*                     <div style={{ width: '100%', marginTop: '5%', paddingLeft: '5%', paddingRight: '5%', overflow: 'hidden' }}>*/} 
-                            <ul>
-                                {this.renderContent(this.props.match.params.id)}
-                            </ul>
-                        {/* </div> */}
+                        <div style={{ width: '100%', marginTop: '5%', display: 'flex', flexWrap: 'wrap', paddingRight: '5%' }}>
+                            {this.renderContent(this.props.match.params.id)}
+                        </div>
                     </div>
                 </div>
             </div>
