@@ -5,16 +5,18 @@ body {
 .music-style-btn {
     white-space: nowrap;
     padding: 0;
-    color: #ff7e00;
+    color: #66ff66;
     font-weight: bold;
     border: none;
     background: none;
     outline: 0 !important;
+    text-decoration: none;    
 }
 
 .music-style-btn:hover {
-    color: #cc0066;
-    transform: scale(1.05);
+    color: #99ffff;
+    transform: scale(1.01);
+    text-decoration: none;    
 }
 
 .song {
@@ -25,8 +27,9 @@ body {
 }
 
 .selectedOption span{
-    color: #ff0080;
+    color: #99ffff;
     transform: scale(1.05);
+    text-decoration: none;     
 }
 
 img {

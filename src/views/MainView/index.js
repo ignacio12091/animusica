@@ -88,9 +88,9 @@ class MainView extends React.Component {
                         case "mostvisited":
                             this.state.songs.forEach((item) => {
                                 result.push(
-                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
+                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgba(30, 30, 30)', borderRadius: 5, alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
                                         <img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
-                                        <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%' }}>
+                                        <p style={{ textOverflow: 'ellipsis', color: 'rgba(230, 230, 230)', margin: '2%' }}>
                                             {item.nombre} 
                                         </p>
                                     </button>
@@ -138,7 +138,7 @@ class MainView extends React.Component {
 
     renderTopOptions() {
         const response = (
-            <div style={{ width: '100%', marginTop: '5%', display: 'flex', justifyContent: 'space-between', color: 'white' }}>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', color: 'white', backgroundColor: 'rgb(10, 10, 10)', paddingTop: '4%', paddingRight: '10%', paddingLeft: '10%', paddingBottom: '4%' }}>
                 <NavLink activeClassName="selectedOption" exact to="/home/mostvisited">
                     <span className="music-style-btn">
                         Más visitados
@@ -165,11 +165,11 @@ class MainView extends React.Component {
             <div>
                 <Sidebar song={this.state.selectedSong} />
                 <div style={{ paddingLeft: '20%' }}>
-                    <div className="container-fluid" style={{ padding: 0, textAlign: 'center', paddingTop: '5%' }}>
-                        <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between', paddingLeft: '10%', paddingRight: '10%' }} role="group" aria-label="Basic example">
+                    <div className="container-fluid" style={{ padding: 0, textAlign: 'center' }}>
+                        <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between' }} role="group" aria-label="Basic example">
                             {this.renderTopOptions()}
                         </div>
-                        <div style={{ width: '100%', marginTop: '5%', display: 'flex', flexWrap: 'wrap', paddingRight: '5%' }}>
+                        <div style={{ width: '100%', marginTop: '2%', display: 'flex', flexWrap: 'wrap', paddingRight: '5%' }}>
                             {this.renderContent(this.props.match.params.id)}
                         </div>
                     </div>

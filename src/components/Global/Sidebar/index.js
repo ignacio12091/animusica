@@ -1,5 +1,6 @@
 import React from 'react';
 import sessionManager from './../../../session/sessionManager';
+import Modal from 'react-modal';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -37,19 +38,27 @@ class Sidebar extends React.Component {
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div className="sidenav">
                     <img src={logo} alt="app logo" className="logoImage" />
-                    { false ?
+                    { true ? 
                         <div>
-                            <NavLink activeClassName="selected" to="/home"><span className="sideButtons">Inicio</span></NavLink>
-                            <NavLink activeClassName="selected" exact to="/search"><span className="sideButtons">Buscar</span></NavLink>
-                            <NavLink activeClassName="selected" exact to="/playlists"><span className="sideButtons">Mis Playlists</span></NavLink> 
+                            <NavLink activeClassName="selected" className="navLinkComponent" to="/home"><span className="navLink">Inicio</span></NavLink>
+                            <NavLink activeClassName="selected" className="navLinkComponent" exact to="/search"><span className="navLink">Buscar</span></NavLink>
+                            <NavLink activeClassName="selected" className="navLinkComponent" exact to="/playlists"><span className="navLink">Mis Playlists</span></NavLink> 
                         </div>
                     :
                         <div style={{ display: 'flex', flexDirection: 'column', padding: 0 }}>
-                            <NavLink to="/home" style={{ height: '5%' }}><h5>Inicio</h5></NavLink>
-                            <h5 style={{ height: '5%' }}>Buscar</h5>
-                            <h5 style={{ height: '5%' }}>Mis Playlists</h5> 
+                            <NavLink to="/home" className="navLinkComponent" activeClassName="selected"><span className="navLink">Inicio</span></NavLink>
+                            <span className="navLink navLinkComponent">Buscar</span>
+                            <span className="navLink navLinkComponent">Mis Playlists</span> 
                         </div>
-                    }              
+                    }
+                    <div className="buttonsBox">
+                        <button className="btn button">
+                            <NavLink exact to="/login"><span style={{ color: 'black' }}>Iniciar sesión</span></NavLink>
+                        </button>
+                        <button className="btn button">
+                            <NavLink exact to="/register"><span style={{ color: 'black' }}>Registrarse</span></NavLink>
+                        </button>
+                    </div>
                 </div>
                 { this.state.audio ? 
                     <div className="player">

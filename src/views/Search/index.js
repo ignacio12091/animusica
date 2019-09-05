@@ -51,7 +51,7 @@ class Search extends React.Component {
             let response = []
             this.state.songs.forEach(element => {
                 let song = (
-                    <button key={element.id} style={{ display: 'flex', flexDirection: 'row', height: '20vh', marginTop: '1vh', marginBottom: '1vh', alignItems: 'center', borderRadius: 4, backgroundColor: 'rgb(30, 30, 30)', width: '100%' }} onClick={(e) => {this.onPressSong(e, element.link_recurso)}}>
+                    <button className="matchedSong" key={element.id} style={{ display: 'flex', flexDirection: 'row', height: '20vh', marginTop: '1vh', marginBottom: '1vh', alignItems: 'center', borderRadius: 4, backgroundColor: 'rgb(30, 30, 30)', width: '100%' }} onClick={(e) => {this.onPressSong(e, element.link_recurso)}}>
                         <img style={{ height: '20vh', }} src={element.link_imagen} alt={element.nombre} />
                         <p style={{ padding: 0, margin: 0, color: '#ff0080', fontSize: 30, marginRight: '1vh', marginLeft: '1vh' }}>{element.nombre}</p>
                     </button>

@@ -17,7 +17,7 @@ img {
     width: auto\9;
 }
 
-button {
+.matchedSong {
     border: none;
     background: none;
     outline: 0 !important;
@@ -26,6 +26,6 @@ button {
     transition: 0.5s;
 }
 
-button:hover {
-    transform: scale(1.02);
+.matchedSong:hover {
+    transform: scale(1.01);
 }
