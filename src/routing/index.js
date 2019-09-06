@@ -7,6 +7,7 @@ import NotFound from './../views/NotFound';
 import Login from './../views/Login';
 import Search from './../views/Search';
 import Sidebar from './../components/Global/Sidebar';
+import Register from './../views/Register';
 import './styles.css';
 
 const ReRoute = () => <Redirect exact from="/" to="/home/mostvisited" />
@@ -23,6 +24,7 @@ const routing = (
             <Route path="/settings" component={UserSettings} />
             <Route path="/login" component={Login} />
             <Route path="/search" component={Search} />
+            <Route path="/register" component={Register} />
             <Route component={NotFound} />
         </Switch>
     </Router>

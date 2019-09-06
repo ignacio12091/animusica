@@ -1,0 +1,92 @@
+.biggestContainer {
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 5px;
+    margin-top: 5vh;
+    height: 90vh;
+    padding: 1%;
+    background-color: #1a1a1d;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logoAbsolute {
+    position: absolute;
+    top: 20vh;
+    width: 20%;
+    left: 12.7%;
+    border-radius: 20px;
+    background-color: #a30534;
+    border-style: solid;
+    border-color: #1a1a1d;
+    height: 30vh;
+    z-index: 3;
+}
+
+.absolute {
+    position: absolute;
+    height: 90vh;
+    width: 15%;
+    background-color: #950740;
+    top: 5vh;
+    left: 15%;
+    z-index: 2;
+    -webkit-box-shadow: 9px 2px 5px 9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 2px 5px 9px rgba(0,0,0,0.75);
+    box-shadow: 9px 2px 5px 9px rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.absolute2 {
+    position: absolute;
+    height: 100vh;
+    width: 10%;
+    background-color:#6f2232;
+    opacity: 0.5;
+    top: 0vh;
+    left: 17.5%;
+    -webkit-box-shadow: 9px 2px 5px 9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 2px 5px 9px rgba(0,0,0,0.75);
+    box-shadow: 9px 2px 5px 9px rgba(0,0,0,0.75);
+}
+
+.inputsContainer{
+    width: 58%;
+    padding-right: 14%;
+    padding-top: 10%;
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputsContainer input{
+    border-radius: 5px;
+    margin-bottom: 5%;
+    height: 8%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.title {
+    align-self: center;
+    color: #4e4e50;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.registerButton {
+    background-color: white;
+    align-self: center;
+    transition: 0.1s; 
+}
+
+.registerButton:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    align-self: center;
+}
+
+.logo {
+    margin-bottom: 100%;
+}
