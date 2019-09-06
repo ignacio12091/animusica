@@ -1,6 +1,5 @@
 import React from 'react';
 import sessionManager from './../../../session/sessionManager';
-import Modal from 'react-modal';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
