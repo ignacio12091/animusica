@@ -24,7 +24,7 @@ class Login extends React.Component {
         this.setState({password: event.target.value});
     }
 
-    onPressSong(event) {
+    onPressLogin(event) {
         const body = {
             email: 'ignacio.lima@anima.edu.uy',
             password: '12345678',
@@ -45,7 +45,7 @@ class Login extends React.Component {
             <div>
                 <input type="text" value={this.state.email} onChange={this.onChangeEmail} />
                 <input type="text" value={this.state.password} onChange={this.onChangePassword} />
-                <button onClick={(e) => {this.onPressSong(e)}}>
+                <button onClick={(e) => {this.onPressLogin(e)}}>
                     login
                 </button>
             </div>    
