@@ -54,7 +54,11 @@ class Register extends React.Component {
         }
         axios.post('http://localhost/register', body)
             .then(function (response) {
-                console.log(response);
+                if (!response.data.success) {
+                    alert('Este email ya está registrado')
+                } else {
+                    window.location.href = '/login';
+                }
             })
             .catch(function (error) {
                 console.log(error);
@@ -65,9 +69,6 @@ class Register extends React.Component {
         const birth = new Date(this.state.birth)
         const today = new Date(this.todayDate())
         if (this.state.name !== "" && this.state.email !== "" && this.state.password !== "" && this.state.repeatedPassword !== "" && this.state.surname !== "") {
-            console.log(birth)
-            console.log(today)
-            console.log(birth > today)
             if (!(birth > today)) {
                 if (this.state.password === this.state.repeatedPassword) {
                     this.register()
