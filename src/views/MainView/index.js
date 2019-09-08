@@ -6,6 +6,7 @@ import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Sidebar from './../../components/Global/Sidebar';
+import sessionManager from './../../session/sessionManager';
 
 /* sessionStorage.setItem('myData', "nachox");
 
@@ -17,11 +18,13 @@ class MainView extends React.Component {
         super(props);
         this.state = {
             selectedSong: "",
-            songs: null,
+            data: null,
             errorFetchingMostVisited: false,
             isFetchingMostVisited: false,
             isFetchingBestRanked: false,
             errorFetchingBestRanked: false,
+            isFetchingGenres: false,
+            errorFetchingGenres: false,
         };
 
         this.onPressSong = this.onPressSong.bind(this)
@@ -36,7 +39,7 @@ class MainView extends React.Component {
                 this.getBestRanked()
             break;
             case "genres": 
-                console.log('genres')
+                this.getGenres()
             break;
             default:
             break;
@@ -48,7 +51,6 @@ class MainView extends React.Component {
     }
 
     componentWillReceiveProps(props) {
-        console.log('props: ', props)
         this.loadSongs(props)
     }
 
@@ -56,11 +58,23 @@ class MainView extends React.Component {
         this.setState({ selectedSong: recurso });
     }
 
+    getGenres() {
+        this.setState({ isFetchingGenres: true });
+        axios.get('http://localhost/genres')
+            .then((response) => {
+                this.setState({ data: response.data, isFetchingGenres: false });
+            })
+            .catch((error) => {
+                console.log('error: ', error)
+                this.setState({ errorFetchingGenres: true, isFetchingGenres: false });
+            })
+    }
+
     getBestRanked() {
         this.setState({ isFetchingBestRanked: true });
         axios.get('http://localhost/bestranked')
             .then((response) => {
-                this.setState({ songs: response.data, isFetchingBestRanked: false });
+                this.setState({ data: response.data, isFetchingBestRanked: false });
             })
             .catch((error) => {
                 console.log('error: ', error)
@@ -72,7 +86,7 @@ class MainView extends React.Component {
         this.setState({ isFetchingMostVisited: true });
         axios.get('http://localhost/mostvisited')
             .then((response) => {            
-                this.setState({ songs: response.data, isFetchingMostVisited: false });
+                this.setState({ data: response.data, isFetchingMostVisited: false });
             })
             .catch((error) => {
                 this.setState({ errorFetchingMostVisited: true, isFetchingMostVisited: false });
@@ -80,13 +94,13 @@ class MainView extends React.Component {
     }
 
     renderContent(option) {
-        if(!this.state.isFetchingMostVisited && !this.state.isFetchingBestRanked) {
-            if(!this.state.errorFetchingMostVisited && !this.state.errorFetchingBestRanked) {
-                if(this.state.songs) {
+        if(!this.state.isFetchingMostVisited && !this.state.isFetchingBestRanked && !this.state.isFetchingGenres) {
+            if(!this.state.errorFetchingMostVisited && !this.state.errorFetchingBestRanked && !this.state.isFetchingGenres) {
+                if(this.state.data) {
                     const result = [];
                     switch(option) {
                         case "mostvisited":
-                            this.state.songs.forEach((item) => {
+                            this.state.data.forEach((item) => {
                                 result.push(
                                     <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgba(30, 30, 30)', borderRadius: 5, alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
                                         <img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
@@ -98,9 +112,9 @@ class MainView extends React.Component {
                             });
                             return(result);
                         case "bestranked": 
-                            this.state.songs.forEach((item) => {
+                            this.state.data.forEach((item) => {
                                 result.push(
-                                    <button className="song" style={{ width: '30%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '2.5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
+                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '2.5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
                                         <img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
                                         <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%' }}>
                                             {item.nombre} 
@@ -110,8 +124,16 @@ class MainView extends React.Component {
                             });
                             return(result);
                         case "genres": 
-                            console.log('genres')
-                            break;
+                            this.state.data.forEach((item) => {
+                                result.push(
+                                    <button className="song" style={{ width: '30%', height: '5vh', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '2.5%', marginBottom: '2.5%', justifyContent: 'center' }} >
+                                        <p style={{ width: '100%', color: 'rgb(230, 230, 230)', margin: '2%' }}>
+                                            {item.nombre} 
+                                        </p>
+                                    </button>
+                                );
+                            });
+                            return(result);
                         default:
                             break;
                     }

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './styles.css';
 import logo from './../../assets/logo.png'
+import sessionManager from './../../session/sessionManager';
 
 class Login extends React.Component {
 
@@ -35,7 +36,12 @@ class Login extends React.Component {
         if (this.state.email !== "" && this.state.password !== "") {
             axios.post('http://localhost/login', body)
               .then(function (response) {
-                console.log(response);
+                    if (response.data.success) {
+                        sessionManager.saveSession(response.data.user)
+                        window.location.href = '/home';
+                    } else {
+                        alert("Error al iniciar sesión")
+                    }
               })
               .catch(function (error) {
                 console.log(error);
