@@ -26,7 +26,7 @@ class Sidebar extends React.Component {
         })}
     }
 
-    render() {  
+    render() {
         return (
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div className="sidenav">
@@ -48,7 +48,7 @@ class Sidebar extends React.Component {
                     { sessionManager.isLogged() ? 
                         <div className="bottomBox">
                             <img src={sessionManager.getUserPhoto()} alt="profile" style={{ alignSelf: 'center', borderRadius: '50%', width: '15vh', height: '15vh' }} />
-                            <NavLink style={{ fontSize: 14, alignSelf: 'center' }} exact to="/settings" ><span className="profileName">Cristian Mello</span></NavLink>
+                            <NavLink style={{ fontSize: 14, alignSelf: 'center' }} exact to="/settings" ><span className="profileName">{ sessionManager.getUserName() }</span></NavLink>
                         </div>
                     :
                         <div className="bottomBox">

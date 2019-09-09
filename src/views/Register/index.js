@@ -54,6 +54,7 @@ class Register extends React.Component {
         }
         axios.post('http://localhost/register', body)
             .then(function (response) {
+                console.log(response)
                 if (!response.data.success) {
                     alert('Este email ya está registrado')
                 } else {
