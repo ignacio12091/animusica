@@ -60,7 +60,7 @@ class MainView extends React.Component {
 
     getGenres() {
         this.setState({ isFetchingGenres: true });
-        axios.get('http://localhost/genres')
+        axios.get('http://localhost/genres')    
             .then((response) => {
                 this.setState({ data: response.data, isFetchingGenres: false });
             })
@@ -114,7 +114,7 @@ class MainView extends React.Component {
                         case "bestranked": 
                             this.state.data.forEach((item) => {
                                 result.push(
-                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '2.5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
+                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
                                         <img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
                                         <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%' }}>
                                             {item.nombre} 
@@ -186,7 +186,7 @@ class MainView extends React.Component {
         return (
             <div>
                 <Sidebar song={this.state.selectedSong} />
-                <div style={{ paddingLeft: '20%' }}>
+                <div style={{ paddingLeft: '20%', paddingBottom: this.state.selectedSong ? "10vh" : "0"}}>
                     <div className="container-fluid" style={{ padding: 0, textAlign: 'center' }}>
                         <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between' }} role="group" aria-label="Basic example">
                             {this.renderTopOptions()}

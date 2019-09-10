@@ -11,7 +11,7 @@ class UserSettings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            editNameModal: true,
+            editNameModal: false,
             name: '',
         };
     
@@ -19,8 +19,41 @@ class UserSettings extends React.Component {
 
     }
 
-    onConfirmNameChange(event) {
+    componentDidMount() {
+        this.fetchUserOptions()
+    }
 
+    fetchUserOptions() {
+        axios.get(`http://localhost/user/${sessionManager.getUserId()}`)
+            .then((response) => {
+                sessionManager.saveSession(response.data)
+                this.setState({ editNameModal: false })                
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    onConfirmNameChange(event) {
+        const body = {
+            option: "name",
+            name: this.state.name,
+        }
+        if (this.state.name !== "") {   
+            axios.post(`http://localhost/user/${sessionManager.getUserId()}/settings`, body)
+              .then((response) => {
+                if (response.data.success) { 
+                    this.fetchUserOptions()                    
+                } else {
+                    alert("Ocurrió un error al editar el nombre")
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+        } else {
+            alert("El nombre nuevo no puede estar vacío")
+        }
     }
 
     render() {

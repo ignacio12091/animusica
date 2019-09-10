@@ -30,6 +30,11 @@ const getUserName = () => {
     return (user.nombre);
 }
 
+const getUserId = () => {
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    return (user.id);
+}
+
 module.exports = {
     saveSession,
     closeSession,
@@ -37,4 +42,5 @@ module.exports = {
     getUserPhoto,
     getUserMail,
     getUserName,
+    getUserId,
 }
