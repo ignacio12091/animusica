@@ -43,7 +43,7 @@ class Playlists extends React.Component {
 					const result = []
 					this.state.playlists.forEach(item => {
 						result.push(
-							<button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={() => {  }}>
+							<button className="song" style={{ width: '100%', display: 'flex', flexDirection: 'row', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginBottom: '2.5%', marginTop: '2.5%' }} onClick={() => {  }}>
 								<img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
 								<p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%' }}>
 									{item.nombre} 
@@ -76,14 +76,16 @@ class Playlists extends React.Component {
 			<div>
 				<Sidebar cambiarVista={(nuevaVista) => { this.cambiarVista(nuevaVista) }} />
 				<div style={{ paddingLeft: '20%' }}>
-					<div className="container-fluid" style={{ padding: 0, textAlign: 'center' }}>
-						<h1 className="" style={{ color: 'white', backgroundColor: 'rgb(10, 10, 10)', paddingTop: '2.5%', paddingBottom: '2.5%', margin: 0 }}>Mis playlists</h1>
+					<div className="container-fluid" style={{ padding: 0, textAlign: 'center', alignItems: 'center' }}>
+						<div style={{ backgroundColor: 'rgb(10, 10, 10)', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '2vh', paddingBottom: '2vh', height: '10vh' }} >
+							<h1 className="" style={{ color: 'white', margin: 0, padding: 0, fontWeight: 'bold' }}>Mis playlists</h1>
+						</div>
 						<div style={{ display: 'flex', padding: 0, margin: 0 }} >
 							<div style={{ display: 'flex', flexDirection: 'column', width: '50%', height: '84.4vh', paddingLeft: '15%', justifyContent: 'center' }} >
 								<button className="playlistButtons" >Crear playlist</button>
 								<button className="playlistButtons" style={{ marginTop: '15%' }} >Borrar Playlist</button>
 							</div>
-							<div style={{ width: '50%', display: 'flex', flexWrap: 'wrap', paddingRight: '5%', backgroundColor: '#c70039', marginRight: '10%', marginLeft: '15%' }}>
+							<div className="playlistsColumn" style={{ width: '50vw', display: 'flex', flexWrap: 'wrap', backgroundColor: '#c70039', marginRight: '10%', marginLeft: '15%', flexDirection: 'row', height: '90vh', overflowY: 'scroll', paddingLeft: '1vh', paddingRight: '1vh' }}>
 								{this.renderPlaylists()}
 							</div>
 						</div>
