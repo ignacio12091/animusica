@@ -150,7 +150,7 @@ class MainView extends React.Component {
                 <Loader
                     style={{ margin: 'auto' }}
                     type="Audio"
-                    color="#ff7e00"
+                    color="#c70039"
                     height="100%"
                     width="100%"
                 />

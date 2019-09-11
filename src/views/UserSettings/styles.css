@@ -3,3 +3,19 @@
     border: none;
     background: none;
 }
+
+.saveAndCancelButton {
+    background-color: white;
+    margin-right: 20vh;
+    margin-left: 20vh;
+    border: 1.2px solid black;
+}
+
+.saveAndCancelButton:hover {
+    background-color: #ec625f;
+}
+ 
+.nameInput {
+    border-radius: 5px;
+    height: 7vh;
+}

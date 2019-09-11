@@ -62,12 +62,12 @@ class UserSettings extends React.Component {
             <Sidebar/>
             { this.state.editNameModal ? 
                 <div style={{ height: '100vh', backgroundColor: 'rgba(0, 0, 0, 0.7)', position: 'absolute', zIndex: 1, width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
-                    <div style={{ height: '50vh', width: '40vw', backgroundColor: '#99ffff', borderRadius: 4, display: 'flex', flexDirection: 'column', padding: '2vw' }} >
-                        <h2 style={{ alignSelf: 'center' }} >Cambiar nombre</h2>
-                        <input style={{ marginTop: '10vh' }} type="text" placeholder="Nombre nuevo" value={this.state.name} onChange={ (event) => { this.setState({ name: event.target.value }) } } />
+                    <div style={{ height: '50vh', width: '40vw', backgroundColor: '#252525', borderRadius: 4, display: 'flex', flexDirection: 'column', padding: '2vw' }} >
+                        <h2 style={{ alignSelf: 'center', color: 'white' }} >Cambiar nombre</h2>
+                        <input className="nameInput" style={{ marginTop: '5vh', marginBottom: '5vh' }} type="text" placeholder="Nombre nuevo" value={this.state.name} onChange={ (event) => { this.setState({ name: event.target.value }) } } />
                         <div style={{ display: 'flex', flexDirection: 'column', marginTop: '2vh' }} >
-                            <button style={{ marginBottom: '2vh' }} onClick={this.onConfirmNameChange} >Guardar</button>
-                            <button onClick={ () => { this.setState({ editNameModal: !this.state.editNameModal }) } } >Cancelar</button>
+                            <button className="btn saveAndCancelButton" style={{ marginBottom: '2vh' }} onClick={this.onConfirmNameChange} >Guardar</button>
+                            <button className="btn saveAndCancelButton" onClick={ () => { this.setState({ editNameModal: !this.state.editNameModal }) } } >Cancelar</button>
                         </div>
                     </div>
                 </div>
@@ -81,23 +81,23 @@ class UserSettings extends React.Component {
                     <h5 style={{ color: 'white' }}>
                         { sessionManager.getUserName() }
                         <button className="buttonNoBackground" onClick={ () => { this.setState({ editNameModal: !this.state.editNameModal }) } }>
-                            <span style={{ fontSize: 14, color: '#00aae4' }}> (Editar)</span>
+                            <span style={{ fontSize: 14, color: '#ec625f' }}> (Editar)</span>
                         </button>
                     </h5>
                     <h5 style={{ color: 'white', marginTop: '3%' }}>
                         { sessionManager.getUserMail() } 
                         <button className="buttonNoBackground">
-                            <span style={{ fontSize: 14, color: '#00aae4' }}> (Editar)</span>
+                            <span style={{ fontSize: 14, color: '#ec625f' }}> (Editar)</span>
                         </button>
                     </h5>
                     <div style={{ display: 'flex', flexDirection: 'column', marginTop: '3%' }}>
                         <button className="buttonNoBackground">
-                            <h5 style={{ color: '#00aae4' }}>
+                            <h5 style={{ color: '#ec625f' }}>
                                 Cambiar contraseña
                             </h5>
                         </button>
                         <button className="buttonNoBackground" style={{ marginTop: '5%' }} onClick={ () => { sessionManager.closeSession(); window.location.href = '/home'; } } >
-                            <h5 style={{ color: '#00aae4' }}>
+                            <h5 style={{ color: '#ec625f' }}>
                                 Cerrar sesión
                             </h5>
                         </button>

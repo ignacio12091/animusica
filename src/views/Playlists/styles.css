@@ -1,3 +1,10 @@
 body {
     background-color: rgb(15,15,15);
 }
+
+.playlistButtons {
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    height: 6vh;
+}

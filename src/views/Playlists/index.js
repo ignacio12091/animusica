@@ -63,7 +63,7 @@ class Playlists extends React.Component {
                 <Loader
                     style={{ margin: 'auto' }}
                     type="Audio"
-                    color="#ff7e00"
+                    color="#c70039"
                     height="100%"
                     width="100%"
                 />
@@ -72,19 +72,25 @@ class Playlists extends React.Component {
 	}
 
     render() {
-      return (
-		<div>
-			<Sidebar cambiarVista={(nuevaVista) => { this.cambiarVista(nuevaVista) }} />
-			<div style={{ paddingLeft: '20%' }}>
-				<div className="container-fluid" style={{ padding: 0, textAlign: 'center', paddingTop: '5%' }}>
-					<h1 className="" style={{ color: 'white' }}>Mis playlists</h1>
-					<div style={{ width: '100%', marginTop: '5%', display: 'flex', flexWrap: 'wrap', paddingRight: '5%' }}>
-						{this.renderPlaylists()}
+		return (
+			<div>
+				<Sidebar cambiarVista={(nuevaVista) => { this.cambiarVista(nuevaVista) }} />
+				<div style={{ paddingLeft: '20%' }}>
+					<div className="container-fluid" style={{ padding: 0, textAlign: 'center' }}>
+						<h1 className="" style={{ color: 'white', backgroundColor: 'rgb(10, 10, 10)', paddingTop: '2.5%', paddingBottom: '2.5%', margin: 0 }}>Mis playlists</h1>
+						<div style={{ display: 'flex', padding: 0, margin: 0 }} >
+							<div style={{ display: 'flex', flexDirection: 'column', width: '50%', height: '84.4vh', paddingLeft: '15%', justifyContent: 'center' }} >
+								<button className="playlistButtons" >Crear playlist</button>
+								<button className="playlistButtons" style={{ marginTop: '15%' }} >Borrar Playlist</button>
+							</div>
+							<div style={{ width: '50%', display: 'flex', flexWrap: 'wrap', paddingRight: '5%', backgroundColor: '#c70039', marginRight: '10%', marginLeft: '15%' }}>
+								{this.renderPlaylists()}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-      );
+		);
     }
 }
 

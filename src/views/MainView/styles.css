@@ -5,7 +5,7 @@ body {
 .music-style-btn {
     white-space: nowrap;
     padding: 0;
-    color: #66ff66;
+    color: #9d0b28;
     font-weight: bold;
     border: none;
     background: none;
@@ -14,7 +14,7 @@ body {
 }
 
 .music-style-btn:hover {
-    color: #99ffff;
+    color: rgba(236, 97, 95, 0.7);
     transform: scale(1.01);
     text-decoration: none;    
 }
@@ -27,7 +27,7 @@ body {
 }
 
 .selectedOption span{
-    color: #99ffff;
+    color: #ec625f;
     transform: scale(1.05);
     text-decoration: none;     
 }

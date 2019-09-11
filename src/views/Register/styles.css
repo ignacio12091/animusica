@@ -16,7 +16,7 @@
     width: 20%;
     left: 12.7%;
     border-radius: 20px;
-    background-color: #a30534;
+    background-color: #9d0b28;
     border-style: solid;
     border-color: #1a1a1d;
     height: 30vh;
@@ -27,7 +27,7 @@
     position: absolute;
     height: 90vh;
     width: 15%;
-    background-color: #950740;
+    background-color: #c70039;
     top: 5vh;
     left: 15%;
     z-index: 2;
@@ -43,7 +43,7 @@
     position: absolute;
     height: 100vh;
     width: 10%;
-    background-color:#6f2232;
+    background-color: #9d0b28;
     opacity: 0.5;
     top: 0vh;
     left: 17.5%;
@@ -55,13 +55,13 @@
 .inputsContainer{
     width: 58%;
     padding-right: 14%;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 2.5vh;
     display: flex;
     flex-direction: column;
 }
 
-.inputsContainer input{
+.inputsContainer input {
     border-radius: 5px;
     margin-bottom: 5%;
     height: 8%;
@@ -72,7 +72,7 @@
     text-decoration: none;    
 }
 
-.inputsContainer div{
+.inputsContainer div {
     border-radius: 5px;
     margin-bottom: 5%;
     height: 8%;
@@ -110,7 +110,7 @@
 
 .title {
     align-self: center;
-    color: #4e4e50;
+    color: white;
     font-weight: bold;
     margin-bottom: 5%;
 }

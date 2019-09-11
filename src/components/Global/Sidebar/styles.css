@@ -4,7 +4,7 @@ body {
 
 .player {
   height: 10vh;
-  background-color: #0099FF;
+  background-color: #c70039;
   width: 100%;
   position: fixed;
   z-index: 1;
@@ -38,11 +38,6 @@ body {
   display: block;
 }
 
-.sideButtons:hover {
-  color: #0099ff;
-  margin-left: 5%;
-}
-
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
@@ -59,7 +54,7 @@ body {
   padding: 0; 
   border: none;
   background: none;
-  color: #0099ff;
+  color: #9d0b28;
   font-size: 20px;
   font-weight: bold;
   outline: 0 !important;
@@ -86,11 +81,11 @@ body {
 .navLink {
   font-size: 20px;
   cursor: pointer;
-  color: #0099FF;
+  color: #9d0b28;
 }
 
 .selected span {
-  color: #99ffff;
+  color: #ec625f;
   margin-left: 5%;
 }
 
@@ -116,8 +111,9 @@ body {
   color: black;
   margin-bottom: 3%;
   background-color: white;
+  transition: 0.4s;
 }
 
 .button:hover {
-  background-color: #818181;
+  background-color: #c70039;
 }
