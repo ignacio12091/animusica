@@ -10,13 +10,14 @@ body {
     border: none;
     background: none;
     outline: 0 !important;
+    font-size: 3vh;
     text-decoration: none;    
 }
 
 .music-style-btn:hover {
     color: rgba(236, 97, 95, 0.7);
     transform: scale(1.01);
-    text-decoration: none;    
+    text-decoration: none;  
 }
 
 .song {
