@@ -6,9 +6,10 @@
 
 .saveAndCancelButton {
     background-color: white;
-    margin-right: 5vw;
-    margin-left: 5vw;
     border: 1.2px solid black;
+    flex: 1;
+    height: 7vh;
+    margin-bottom: 3vh;
 }
 
 .saveAndCancelButton:hover {

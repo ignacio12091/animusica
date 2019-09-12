@@ -4,7 +4,7 @@ body {
 
 .player {
   height: 10vh;
-  background-color: #c70039;
+  background-color: rgba(5, 5, 5, 0.96);
   width: 100%;
   position: fixed;
   z-index: 1;

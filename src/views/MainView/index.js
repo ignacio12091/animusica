@@ -102,8 +102,8 @@ class MainView extends React.Component {
                         case "mostvisited":
                             this.state.data.forEach((item) => {
                                 result.push(
-                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgba(30, 30, 30)', borderRadius: 5, alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
-                                        <img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
+                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
+                                        <img src={item.link_imagen} style={{ }} alt="" />
                                         <p style={{ textOverflow: 'ellipsis', color: 'rgba(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
                                             {item.nombre} 
                                         </p>
@@ -114,8 +114,8 @@ class MainView extends React.Component {
                         case "bestranked": 
                             this.state.data.forEach((item) => {
                                 result.push(
-                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
-                                        <img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
+                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
+                                        <img src={item.link_imagen} style={{ }} alt="" />
                                         <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
                                             {item.nombre} 
                                         </p>

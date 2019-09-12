@@ -5,6 +5,7 @@ import Sidebar from './../../components/Global/Sidebar';
 import sessionManager from './../../session/sessionManager';
 import 'bootstrap/dist/css/bootstrap.css';
 import songImage from './../../assets/profileImage.png';
+import Modal from './../../components/Global/Modal';
 
 class UserSettings extends React.Component {
     
@@ -13,6 +14,7 @@ class UserSettings extends React.Component {
         this.state = {
             editNameModal: false,
             name: '',
+            editMailModal: false,
         };
     
         this.onConfirmNameChange = this.onConfirmNameChange.bind(this);
@@ -60,19 +62,23 @@ class UserSettings extends React.Component {
       return (
         <div>
             <Sidebar/>
-            { this.state.editNameModal ? 
-                <div style={{ height: '100vh', backgroundColor: 'rgba(0, 0, 0, 0.7)', position: 'absolute', zIndex: 1, width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
-                    <div style={{ height: '50vh', width: '40vw', backgroundColor: '#252525', borderRadius: 4, display: 'flex', flexDirection: 'column', padding: '2vw' }} >
-                        <h2 style={{ alignSelf: 'center', color: 'white' }} >Cambiar nombre</h2>
-                        <input className="nameInput" style={{ marginTop: '5vh', marginBottom: '5vh' }} type="text" placeholder="Nombre nuevo" value={this.state.name} onChange={ (event) => { this.setState({ name: event.target.value }) } } />
-                        <div style={{ display: 'flex', flexDirection: 'column', marginTop: '2vh' }} >
-                            <button className="btn saveAndCancelButton" style={{ marginBottom: '2vh' }} onClick={this.onConfirmNameChange} >Guardar</button>
-                            <button className="btn saveAndCancelButton" onClick={ () => { this.setState({ editNameModal: !this.state.editNameModal }) } } >Cancelar</button>
-                        </div>
+            { this.state.editNameModal &&
+                <Modal title="Cambiar nombre">
+                    <input className="nameInput" style={{ marginTop: '5vh', marginBottom: '3vh' }} type="text" placeholder="Nombre nuevo" value={this.state.name} onChange={ (event) => { this.setState({ name: event.target.value }) } } />
+                    <div style={{ display: 'flex', flexDirection: 'row' }} >
+                        <button className="btn saveAndCancelButton" style={{ marginRight: '3vh' }} onClick={ () => { this.setState({ editNameModal: !this.state.editNameModal }) } } >Cancelar</button>
+                        <button className="btn saveAndCancelButton" onClick={this.onConfirmNameChange} >Guardar</button>
                     </div>
-                </div>
-                :
-                null
+                </Modal>
+            }
+            { this.state.editMailModal &&
+                <Modal title="Cambiar mail" >
+                    <input className="nameInput" style={{ marginTop: '5vh', marginBottom: '3vh' }} type="text" placeholder="Nombre nuevo" value={this.state.name} onChange={ (event) => { this.setState({ name: event.target.value }) } } />
+                    <div style={{ display: 'flex', flexDirection: 'row' }} >
+                        <button className="btn saveAndCancelButton" style={{ marginRight: '3vh' }} onClick={ () => { this.setState({ editMailModal: !this.state.editMailModal }) } } >Cancelar</button>
+                        <button className="btn saveAndCancelButton" onClick={this.onConfirmNameChange} >Guardar</button>
+                    </div>
+                </Modal>
             }
             <div className="container-fluid" style={{ textAlign: 'center', paddingTop: '5%', paddingLeft: '20%' }} >
                 <h1 style={{ color: 'white' }} >Configuración de usuario</h1>
@@ -87,7 +93,7 @@ class UserSettings extends React.Component {
                     <h5 style={{ color: 'white', marginTop: '3%' }}>
                         { sessionManager.getUserMail() } 
                         <button className="buttonNoBackground">
-                            <span style={{ fontSize: 14, color: '#ec625f' }}> (Editar)</span>
+                            <span style={{ fontSize: 14, color: '#ec625f'  }} onClick={ () => { this.setState({ editMailModal: !this.state.editMailModal }) } }> (Editar)</span>
                         </button>
                     </h5>
                     <div style={{ display: 'flex', flexDirection: 'column', marginTop: '3%' }}>

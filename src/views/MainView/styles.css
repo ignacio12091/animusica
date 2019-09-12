@@ -25,6 +25,11 @@ body {
     border: none;
     background: none;
     outline: 0 !important;
+    transition: 0.2s;
+}
+
+.song:hover {
+    transform: scale(1.015);
 }
 
 .selectedOption span{

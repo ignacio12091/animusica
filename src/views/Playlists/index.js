@@ -4,6 +4,7 @@ import Loader from 'react-loader-spinner'
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import sessionManager from './../../session/sessionManager';
 import song1 from './../../assets/song2.jpg';
 import Sidebar from './../../components/Global/Sidebar';
 
@@ -24,7 +25,7 @@ class Playlists extends React.Component {
 	
     getUserPlaylists() {
 		this.setState({ isFetchingPlaylists: true });
-		const userId = 1
+		const userId = sessionManager.getUserId()
         axios.get(`http://localhost/playlists/user/${userId}`)
             .then((response) => {
 				console.log('reponse: ', response)
@@ -43,10 +44,10 @@ class Playlists extends React.Component {
 					const result = []
 					this.state.playlists.forEach(item => {
 						result.push(
-							<button className="song" style={{ width: '100%', display: 'flex', flexDirection: 'row', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginBottom: '2.5%', marginTop: '2.5%' }} onClick={() => {  }}>
-								<img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }} alt="" />
+							<button className="song" style={{ display: 'flex', width: '100%', flexDirection: 'row', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginBottom: '2.5%', marginTop: '2.5%', height: '30vh' }} onClick={() => {  }}>
+								<img src={item.link_imagen} style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5, height: '30vh' }} alt="" />
 								<p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%' }}>
-									{item.nombre} 
+									{item.nombre}
 								</p>
 							</button>
 						);
@@ -85,7 +86,7 @@ class Playlists extends React.Component {
 								<button className="playlistButtons" >Crear playlist</button>
 								<button className="playlistButtons" style={{ marginTop: '15%' }} >Borrar Playlist</button>
 							</div>
-							<div className="playlistsColumn" style={{ width: '50vw', display: 'flex', flexWrap: 'wrap', backgroundColor: '#c70039', marginRight: '10%', marginLeft: '15%', flexDirection: 'row', height: '90vh', overflowY: 'scroll', paddingLeft: '1vh', paddingRight: '1vh' }}>
+							<div className="playlistsColumn" style={{ width: '50vw', display: 'flex', flexWrap: 'wrap', backgroundColor: '#c70039', marginRight: '10%', marginLeft: '15%', flexDirection: 'row', height: '90vh', overflowY: 'scroll', paddingLeft: '3vh', paddingRight: '3vh' }}>
 								{this.renderPlaylists()}
 							</div>
 						</div>
