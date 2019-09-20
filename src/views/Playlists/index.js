@@ -5,7 +5,6 @@ import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import sessionManager from './../../session/sessionManager';
-import song1 from './../../assets/song2.jpg';
 import Sidebar from './../../components/Global/Sidebar';
 
 class Playlists extends React.Component {

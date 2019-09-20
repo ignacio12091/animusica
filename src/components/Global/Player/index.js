@@ -1,6 +1,5 @@
 import React from 'react';
-import { setSong } from '../../../actions'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -12,29 +11,41 @@ class Player extends React.Component {
         this.state = {
             modalContent: false,
             isLoggedIn: false,
-            audio: "http://localhost/songs/abranPaso.mp3",
+            audio: "",
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.song && nextProps.song !== "") {
+            this.setState({ audio: 'http://localhost/songs' + nextProps.song.song }, function(){
+                this.refs.audio.pause();
+                this.refs.audio.load();
+                this.refs.audio.play();
+        })}
+    }
+
     render() {
-        return(
-            <div className="player">
-                <audio controls ref="audio">
-                    <source src={this.state.audio} type="audio/ogg" />
-                    <source src={this.state.audio} type="audio/mpeg" />
-                </audio>
-            </div>
-        );
+        if (this.state.audio !== "") {
+            return(
+                <div className="player">
+                    <audio controls ref="audio">
+                        <source src={this.state.audio} type="audio/ogg" />
+                        <source src={this.state.audio} type="audio/mpeg" />
+                    </audio>
+                </div>
+            );
+        } else {
+            return null;
+        }
     }
 
 }
 
 const mapStateToProps = state => ({
-    
+    song: state.song,
 })
   
 const mapDispatchToProps = dispatch => ({
-    setSong: text => dispatch(setSong(text))
 })
 
 export default connect(

@@ -4,7 +4,6 @@ import './styles.css';
 import Sidebar from './../../components/Global/Sidebar';
 import sessionManager from './../../session/sessionManager';
 import 'bootstrap/dist/css/bootstrap.css';
-import songImage from './../../assets/profileImage.png';
 import Modal from './../../components/Global/Modal';
 
 class UserSettings extends React.Component {
