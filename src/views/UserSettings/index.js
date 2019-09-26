@@ -17,6 +17,7 @@ class UserSettings extends React.Component {
             oldMail: '',
             password: '',
             newMail: '',
+            editPasswordModal: false,
         };
     
         this.onConfirmChange = this.onConfirmChange.bind(this);
@@ -31,7 +32,7 @@ class UserSettings extends React.Component {
         axios.get(`http://localhost/user/${sessionManager.getUserId()}`)
             .then((response) => {
                 sessionManager.saveSession(response.data)
-                this.setState({ editNameModal: false, editMailModal: false })                
+                this.setState({ editNameModal: false, editMailModal: false, editPasswordModal: false })                
             })
             .catch((error) => {
                 console.log(error)
@@ -74,9 +75,8 @@ class UserSettings extends React.Component {
                 if (this.state.oldMail !== "" && this.state.password !== "" && this.state.newMail !== "") {
                     axios.post(`http://localhost/user/${sessionManager.getUserId()}/settings`, body)
                     .then((response) => {
-                        console.log(response)
-                        if (response.data.success) { 
-                            this.fetchUserOptions()                    
+                        if (response.data.success) {
+                            this.fetchUserOptions()                
                         } else {
                             alert("Ocurrió un error al modificar el mail")
                         }
@@ -84,6 +84,34 @@ class UserSettings extends React.Component {
                     .catch((error) => {
                         console.log(error);
                     });
+                } else {
+                    alert("Hay campos vacíos")
+                }
+            break;
+            case "password":
+                body = {
+                    option: "password",
+                    password: this.state.password,
+                    newPassword: this.state.newPassword,
+                }
+                this.setState({ password: "", newPassword: "", repeatNewPassword: "" })                                
+                if (this.state.password !== "" && this.state.newPassword !== "" && this.state.repeatNewPassword !== "") {
+                    if (this.state.newPassword === this.state.repeatNewPassword) {
+                        axios.post(`http://localhost/user/${sessionManager.getUserId()}/settings`, body)
+                        .then((response) => {
+                            console.log(response)
+                            if (response.data.success) {
+                                this.fetchUserOptions()                    
+                            } else {
+                                alert("Ocurrió un error al modificar el mail")
+                            }
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                    } else {
+                        alert("Las contraseñas no coinciden")
+                    }
                 } else {
                     alert("Hay campos vacíos")
                 }
@@ -115,6 +143,17 @@ class UserSettings extends React.Component {
                     </div>
                 </Modal>
             }
+            { this.state.editPasswordModal &&
+                <Modal title="Cambiar contraseña" >
+                    <input className="password" style={{ marginBottom: '2vh' }} type="text" placeholder="Contraseña" value={this.state.password} onChange={ (event) => { this.setState({ password: event.target.value }) } } />
+                    <input className="password" style={{ marginBottom: '2vh' }} type="text" placeholder="Nueva contraseña" value={this.state.newPassword} onChange={ (event) => { this.setState({ newPassword: event.target.value }) } } />
+                    <input className="password" style={{ marginBottom: '2vh' }} type="text" placeholder="Repita la nueva contraseña" value={this.state.repeatNewPassword} onChange={ (event) => { this.setState({ repeatNewPassword: event.target.value }) } } />
+                    <div style={{ display: 'flex', flexDirection: 'row' }} >
+                        <button className="btn saveAndCancelButton" style={{ marginRight: '3vh' }} onClick={ () => { this.setState({ editPasswordModal: !this.state.editPasswordModal }) } } >Cancelar</button>
+                        <button className="btn saveAndCancelButton" onClick={(event) => { this.onConfirmChange(event, 'password') }} >Guardar</button>
+                    </div> 
+                </Modal>
+            }
             <div className="container-fluid" style={{ textAlign: 'center', paddingTop: '5%', paddingLeft: '20%' }} >
                 <h1 style={{ color: 'white' }} >Configuración de usuario</h1>
                 <img style={{ borderRadius: '50%', width: '25vh', height: '25vh' }} src={sessionManager.getUserPhoto()} alt="profile" />
@@ -132,7 +171,7 @@ class UserSettings extends React.Component {
                         </button>
                     </h5>
                     <div style={{ display: 'flex', flexDirection: 'column', marginTop: '3%' }}>
-                        <button className="buttonNoBackground">
+                        <button className="buttonNoBackground" onClick={ () => { this.setState({ editPasswordModal: !this.state.editPasswordModal }) } }>
                             <h5 style={{ color: '#ec625f' }}>
                                 Cambiar contraseña
                             </h5>
