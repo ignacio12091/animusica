@@ -14,9 +14,12 @@ class UserSettings extends React.Component {
             editNameModal: false,
             name: '',
             editMailModal: false,
+            oldMail: '',
+            password: '',
+            newMail: '',
         };
     
-        this.onConfirmNameChange = this.onConfirmNameChange.bind(this);
+        this.onConfirmChange = this.onConfirmChange.bind(this);
 
     }
 
@@ -28,32 +31,63 @@ class UserSettings extends React.Component {
         axios.get(`http://localhost/user/${sessionManager.getUserId()}`)
             .then((response) => {
                 sessionManager.saveSession(response.data)
-                this.setState({ editNameModal: false })                
+                this.setState({ editNameModal: false, editMailModal: false })                
             })
             .catch((error) => {
                 console.log(error)
             })
     }
 
-    onConfirmNameChange(event) {
-        const body = {
-            option: "name",
-            name: this.state.name,
-        }
-        if (this.state.name !== "") {   
-            axios.post(`http://localhost/user/${sessionManager.getUserId()}/settings`, body)
-              .then((response) => {
-                if (response.data.success) { 
-                    this.fetchUserOptions()                    
-                } else {
-                    alert("Ocurrió un error al editar el nombre")
+    onConfirmChange(event, option) {
+        let body = {}
+        switch(option) {
+            case "name":
+                body = {
+                    option: "name",
+                    name: this.state.name,
                 }
-              })
-              .catch((error) => {
-                console.log(error);
-              });
-        } else {
-            alert("El nombre nuevo no puede estar vacío")
+                this.setState({ name: "" })
+                if (this.state.name !== "") {
+                    axios.post(`http://localhost/user/${sessionManager.getUserId()}/settings`, body)
+                    .then((response) => {
+                        if (response.data.success) { 
+                            this.fetchUserOptions()                    
+                        } else {
+                            alert("Ocurrió un error al editar el nombre")
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+                } else {
+                    alert("El nombre nuevo no puede estar vacío")
+                }
+            break;
+            case "mail":
+                body = {
+                    option: "mail",
+                    oldMail: this.state.oldMail,
+                    password: this.state.password,
+                    newMail: this.state.newMail,
+                }
+                this.setState({ oldMail: "", password: "", newMail: "" })                
+                if (this.state.oldMail !== "" && this.state.password !== "" && this.state.newMail !== "") {
+                    axios.post(`http://localhost/user/${sessionManager.getUserId()}/settings`, body)
+                    .then((response) => {
+                        console.log(response)
+                        if (response.data.success) { 
+                            this.fetchUserOptions()                    
+                        } else {
+                            alert("Ocurrió un error al modificar el mail")
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+                } else {
+                    alert("Hay campos vacíos")
+                }
+            break;
         }
     }
 
@@ -66,16 +100,18 @@ class UserSettings extends React.Component {
                     <input className="nameInput" style={{ marginTop: '5vh', marginBottom: '3vh' }} type="text" placeholder="Nombre nuevo" value={this.state.name} onChange={ (event) => { this.setState({ name: event.target.value }) } } />
                     <div style={{ display: 'flex', flexDirection: 'row' }} >
                         <button className="btn saveAndCancelButton" style={{ marginRight: '3vh' }} onClick={ () => { this.setState({ editNameModal: !this.state.editNameModal }) } } >Cancelar</button>
-                        <button className="btn saveAndCancelButton" onClick={this.onConfirmNameChange} >Guardar</button>
+                        <button className="btn saveAndCancelButton" onClick={(event) => { this.onConfirmChange(event, 'name') }} >Guardar</button>
                     </div>
                 </Modal>
             }
             { this.state.editMailModal &&
                 <Modal title="Cambiar mail" >
-                    <input className="nameInput" style={{ marginTop: '5vh', marginBottom: '3vh' }} type="text" placeholder="Nombre nuevo" value={this.state.name} onChange={ (event) => { this.setState({ name: event.target.value }) } } />
+                    <input className="oldMail" style={{ marginTop: '5vh', marginBottom: '2vh' }} type="text" placeholder="Mail antiguo" value={this.state.oldMail} onChange={ (event) => { this.setState({ oldMail: event.target.value }) } } />
+                    <input className="password" style={{ marginBottom: '2vh' }} type="text" placeholder="Contraseña" value={this.state.password} onChange={ (event) => { this.setState({ password: event.target.value }) } } />
+                    <input className="newMail" style={{ marginBottom: '3vh' }} type="text" placeholder="Nuevo mail" value={this.state.newMail} onChange={ (event) => { this.setState({ newMail: event.target.value }) } } />
                     <div style={{ display: 'flex', flexDirection: 'row' }} >
                         <button className="btn saveAndCancelButton" style={{ marginRight: '3vh' }} onClick={ () => { this.setState({ editMailModal: !this.state.editMailModal }) } } >Cancelar</button>
-                        <button className="btn saveAndCancelButton" onClick={this.onConfirmNameChange} >Guardar</button>
+                        <button className="btn saveAndCancelButton" onClick={(event) => { this.onConfirmChange(event, 'mail') }} >Guardar</button>
                     </div>
                 </Modal>
             }
