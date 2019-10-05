@@ -50,16 +50,16 @@ class UserSettings extends React.Component {
                 this.setState({ name: "" })
                 if (this.state.name !== "") {
                     axios.post(`http://localhost/user/${sessionManager.getUserId()}/settings`, body)
-                    .then((response) => {
-                        if (response.data.success) { 
-                            this.fetchUserOptions()                    
-                        } else {
-                            alert("Ocurrió un error al editar el nombre")
-                        }
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                    });
+                        .then((response) => {
+                            if (response.data.success) { 
+                                this.fetchUserOptions()                    
+                            } else {
+                                alert("Ocurrió un error al editar el nombre")
+                            }
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
                 } else {
                     alert("El nombre nuevo no puede estar vacío")
                 }
@@ -115,6 +115,8 @@ class UserSettings extends React.Component {
                 } else {
                     alert("Hay campos vacíos")
                 }
+            break;
+            default:
             break;
         }
     }
