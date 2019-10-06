@@ -60,20 +60,6 @@ class Sidebar extends React.Component {
                             </button>
                         </div>
                     }
-
-                    {/*                     <div className="bottom-box d-flex flex-column">
-                        {this.state.isLoggedIn ?
-                            <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
-                                <img src={profileImage} alt="profile" style={{ borderRadius: 250, width: '40%' }} />
-                                <button className="profileName" style={{ fontSize: 14 }} onClick={() => { this.props.cambiarVista("UserSettings") }} >Cristian Mello</button>
-                            </div>
-                        :
-                            <div className="d-flex flex-column">
-                                <button type="button" class="btn btn-light d-block" style={{ margin: 0, borderRadius: 20 }}  data-toggle="modal" data-target="#login-register-modal" onClick={ () => { this.setState({ modalContent: false }) } }>Iniciar sesión</button>
-                                <button type="button" class="btn btn-light d-block" style={{ marginTop: 16, borderRadius: 20 }}  data-toggle="modal" data-target="#login-register-modal" onClick={ () => { this.setState({ modalContent: true }) } }>Registrarse</button>
-                            </div>
-                        }
-                    </div> */}
                 </div>
                 { this.state.audio ? 
                     <div className="player">

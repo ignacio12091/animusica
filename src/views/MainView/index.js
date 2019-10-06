@@ -15,7 +15,6 @@ class MainView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedSong: "",
             data: null,
             errorFetchingMostVisited: false,
             isFetchingMostVisited: false,
@@ -54,7 +53,6 @@ class MainView extends React.Component {
 
     onPressSong(event, recurso) {
         if (sessionManager.isLogged()) {
-            this.setState({ selectedSong: recurso.nombre });
             this.props.setSong(recurso)
         } else {
             alert("Necesitas haber iniciado sesión para escuchar una canción")
@@ -105,7 +103,7 @@ class MainView extends React.Component {
                         case "mostvisited":
                             this.state.data.forEach((item) => {
                                 result.push(
-                                    <button key={item.id} className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
+                                    <button key={item.id} className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item)}}>
                                         <img src={item.link_imagen} style={{ }} alt="" />
                                         <p style={{ textOverflow: 'ellipsis', color: 'rgba(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
                                             {item.nombre} 
@@ -117,7 +115,7 @@ class MainView extends React.Component {
                         case "bestranked": 
                             this.state.data.forEach((item) => {
                                 result.push(
-                                    <button key={item.id} className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
+                                    <button key={item.id} className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item)}}>
                                         <img src={item.link_imagen} style={{ }} alt="" />
                                         <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
                                             {item.nombre} 
@@ -188,7 +186,7 @@ class MainView extends React.Component {
     render() {
         return (
             <div>
-                <Sidebar song={this.state.selectedSong} />
+                <Sidebar />
                 <div style={{ paddingLeft: '20%', paddingBottom: this.state.selectedSong ? "10vh" : "0"}}>
                     <div className="container-fluid" style={{ padding: 0, textAlign: 'center' }}>
                         <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between' }} role="group" aria-label="Basic example">

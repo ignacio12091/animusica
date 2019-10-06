@@ -12,4 +12,17 @@
     text-align: center;
     margin-left: 20%;
     padding-right: 20%;
+    flex-direction: row;
+    color: white;
+    font-weight: bold;
+}
+
+.closeSong {
+    position: absolute;
+    left: 0;
+    font-size: 3vh;
+}
+
+.closeSong:hover {
+    cursor: pointer;
 }

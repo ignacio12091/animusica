@@ -12,12 +12,13 @@ class Player extends React.Component {
             modalContent: false,
             isLoggedIn: false,
             audio: "",
+            songInfo: {},
         };
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.song && nextProps.song !== "") {
-            this.setState({ audio: 'http://localhost/songs' + nextProps.song.song }, function(){
+            this.setState({ songInfo: nextProps.song.song, audio: 'http://localhost/songs' + nextProps.song.song.link_recurso }, function(){
                 this.refs.audio.pause();
                 this.refs.audio.load();
                 this.refs.audio.play();
@@ -28,10 +29,14 @@ class Player extends React.Component {
         if (this.state.audio !== "") {
             return(
                 <div className="player">
-                    <audio controls ref="audio">
-                        <source src={this.state.audio} type="audio/ogg" />
-                        <source src={this.state.audio} type="audio/mpeg" />
-                    </audio>
+                    <div className="material-icons closeSong" onClick={ () => { this.setState({ audio: "" }) } }>close</div>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        {this.state.songInfo&&this.state.songInfo.nombre}
+                        <audio controls ref="audio">
+                            <source src={this.state.audio} type="audio/ogg" />
+                            <source src={this.state.audio} type="audio/mpeg" />
+                        </audio>
+                    </div>
                 </div>
             );
         } else {
