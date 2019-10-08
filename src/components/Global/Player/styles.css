@@ -26,3 +26,9 @@
 .closeSong:hover {
     cursor: pointer;
 }
+
+.addButton {
+    cursor: pointer;
+    transition: 6s;
+    color: white;
+}

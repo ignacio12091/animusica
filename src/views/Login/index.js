@@ -36,6 +36,7 @@ class Login extends React.Component {
         if (this.state.email !== "" && this.state.password !== "") {
             axios.post('http://localhost/login', body)
               .then(function (response) {
+                    console.log(response)
                     if (response.data.success) {
                         sessionManager.saveSession(response.data.user)
                         window.location.href = '/home';

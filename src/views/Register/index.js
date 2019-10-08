@@ -54,7 +54,6 @@ class Register extends React.Component {
         }
         axios.post('http://localhost/register', body)
             .then(function (response) {
-                console.log(response)
                 if (!response.data.success) {
                     alert('Este email ya está registrado')
                 } else {
@@ -90,7 +89,6 @@ class Register extends React.Component {
 
     onChangeBirth(event) {
         this.setState({ birth: event.target.value })
-        console.log(event.target.value)
     }
 
     todayDate() {

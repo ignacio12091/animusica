@@ -30,6 +30,7 @@ class Player extends React.Component {
             return(
                 <div className="player">
                     <div className="material-icons closeSong" onClick={ () => { this.setState({ audio: "" }) } }>close</div>
+                    <div className="material-icons addButton">add</div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         {this.state.songInfo&&this.state.songInfo.nombre}
                         <audio controls ref="audio">
