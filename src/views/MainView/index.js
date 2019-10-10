@@ -22,6 +22,7 @@ class MainView extends React.Component {
             errorFetchingBestRanked: false,
             isFetchingGenres: false,
             errorFetchingGenres: false,
+            songSelected: false,
         };
 
         this.onPressSong = this.onPressSong.bind(this)
@@ -53,6 +54,7 @@ class MainView extends React.Component {
 
     onPressSong(event, recurso) {
         if (sessionManager.isLogged()) {
+            this.setState({ songSelected: true });
             this.props.setSong(recurso)
         } else {
             alert("Necesitas haber iniciado sesión para escuchar una canción")
@@ -184,6 +186,7 @@ class MainView extends React.Component {
     }
 
     render() {
+        console.log(this.props.song)
         return (
             <div>
                 <Sidebar />
@@ -192,7 +195,7 @@ class MainView extends React.Component {
                         <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between' }} role="group" aria-label="Basic example">
                             {this.renderTopOptions()}
                         </div>
-                        <div style={{ width: '100%', marginTop: '2%', display: 'flex', flexWrap: 'wrap', paddingRight: '5%' }}>
+                        <div style={{ width: '100%', marginTop: '2%', display: 'flex', flexWrap: 'wrap', paddingRight: '5%', paddingBottom: this.props.song.song ? '15vh': '' }}>
                             {this.renderContent(this.props.match.params.id)}
                         </div>
                     </div>
@@ -203,7 +206,7 @@ class MainView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    
+    song: state.song,
 })
   
 const mapDispatchToProps = dispatch => ({

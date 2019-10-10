@@ -8,6 +8,10 @@ const songs = (state = initialState, action) => {
         return {
             song: action.song,
         }
+      case 'CLEAR_SONG':
+        return {
+          song: false,
+        }
       default:
         return state
     }
