@@ -2,10 +2,14 @@
     background-color: white;
     height: 25vh;
     border-radius: 5px;
-    margin: 5vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    margin-left: 5vh;
+    margin-right: 2vh;
     display: flex;
     padding: 0;
     border: none;
+    flex: 1;
 }
 
 .playlist:hover {
@@ -54,4 +58,20 @@
 
 button:focus {
     outline: 0;
+}
+
+.deleteButton {
+    background: none;
+    border: none;
+    color: white;
+    margin-right: 1vh;
+}
+
+.deleteButton:hover {
+    transform: scale(1.1);
+}
+
+.playlistContainer {
+    display: flex;
+    flex: 1;
 }

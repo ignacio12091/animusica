@@ -24,7 +24,7 @@ class Player extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.song && nextProps.song !== "" && !this.props.song.song) {
+        if (nextProps.song && nextProps.song !== "" && nextProps.song.song) {
             this.getUserPlaylists()
             this.setState({ songInfo: nextProps.song.song, audio: 'http://localhost/songs' + nextProps.song.song.link_recurso }, function(){
                 this.refs.audio.pause();
@@ -53,7 +53,6 @@ class Player extends React.Component {
         axios.post(`http://localhost/playlists/user/${this.state.songInfo.id_usuario}/${playlistId}/${this.state.songInfo.id}`)
             .then((response) => {
                 if (response.data.success) {
-                    console.log("ok")
                 } else if (response.data.error === "Esta canción ya está agregada a la lista de reproducción") {
                     alert("Esta canción ya fue agregada anteriormente a la lista de reproducción");
                 } else {
@@ -85,7 +84,6 @@ class Player extends React.Component {
     }
 
     render() {
-        console.log(this.state.audio)
         if (this.props.song.song) {
             return (
                 <div>

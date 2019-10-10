@@ -32,7 +32,11 @@ const getUserName = () => {
 
 const getUserId = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
-    return (user.id);
+    if (user) {
+        return (user.id);
+    } else {
+        return 0;
+    }
 }
 
 module.exports = {

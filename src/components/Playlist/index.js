@@ -42,12 +42,14 @@ class Playlist extends React.Component {
             if (!this.state.noSongs) {
                 return this.state.songs.map((item) => {
                     return (
-                        <div key={item.id} className="playlist" onClick={ () => { this.props.setSong(item) } }>
-                            <img alt="" src={item.link_imagen} />
-                            <div className="songInfo" >
-                                <h3>{item.nombre}</h3>
-                                <p>{item.duracion}</p>
+                        <div key={item.id} className="playlistContainer">
+                            <div className="playlist" onClick={ () => { this.props.setSong(item) } }>
+                                <img alt="" src={item.link_imagen} />
+                                <div className="songInfo" >
+                                    <h3>{item.nombre}</h3>
+                                </div>
                             </div>
+                            <button className="material-icons deleteButton" onClick={ () => { this.onPressDeleteSong() } }>delete</button>
                         </div>
                     );
                 });
