@@ -5,6 +5,7 @@ import { setSong } from '../../actions/song';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import sessionManager from '../../session/sessionManager';
 
 class Playlist extends React.Component {
 
@@ -37,6 +38,20 @@ class Playlist extends React.Component {
 			})
     }
 
+    onPressDeleteSong(item) {
+        axios.get(`http://localhost/playlists/user/${item.id_usuario}/${this.props.playlistInfo.id}/${item.id}`)
+            .then((response) => {
+                if (response.data.success) {
+                    this.fetchPlaylistSongs()
+                } else {
+                    console.log("error")
+                }
+            })
+            .catch((error) => {
+                console.log("error")
+            })
+    }
+
     renderSongs() {
         if (this.state.songs && !this.state.isFetchingSongs) {
             if (!this.state.noSongs) {
@@ -49,7 +64,7 @@ class Playlist extends React.Component {
                                     <h3>{item.nombre}</h3>
                                 </div>
                             </div>
-                            <button className="material-icons deleteButton" onClick={ () => { this.onPressDeleteSong() } }>delete</button>
+                            <button className="material-icons deleteButton" onClick={ () => { this.onPressDeleteSong(item) } }>delete</button>
                         </div>
                     );
                 });

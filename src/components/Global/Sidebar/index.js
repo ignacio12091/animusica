@@ -13,17 +13,7 @@ class Sidebar extends React.Component {
         this.state = {
             modalContent: false,
             isLoggedIn: false,
-            audio: null,
         };
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if(nextProps.song && nextProps.song !== "") {       
-            this.setState({ audio: 'http://localhost/songs' + nextProps.song }, function(){
-                this.refs.audio.pause();
-                this.refs.audio.load();
-                this.refs.audio.play();
-        })}
     }
 
     render() {
@@ -61,16 +51,6 @@ class Sidebar extends React.Component {
                         </div>
                     }
                 </div>
-                { this.state.audio ? 
-                    <div className="player">
-                        <audio controls ref="audio">
-                            <source src={this.state.audio} type="audio/ogg" />
-                            <source src={this.state.audio} type="audio/mpeg" />
-                        </audio>
-                    </div>
-                :
-                    null
-                }
             </div>
         );
     }
