@@ -18,6 +18,66 @@ class Sidebar extends React.Component {
 
     render() {
         return (
+            <div className="sidenav">
+                <img src={logo} className="appLogo" alt="logo" />
+                {
+                    sessionManager.isLogged() ?
+                        <div className="buttonsContainer">
+                            <NavLink activeClassName="selectedRoute" className="routerButton" to="/home">
+                                <div style={{ display: 'flex', alignItems: 'center' }} >
+                                    <span className="material-icons">home</span>
+                                    <p style={{ margin: 0, padding: 0, color: 'white', marginLeft: '1vw' }}>Inicio</p>
+                                </div>
+                            </NavLink>
+                            <NavLink activeClassName="selectedRoute" className="routerButton" exact to="/search">
+                                <div style={{ display: 'flex', alignItems: 'center' }} >
+                                    <span className="material-icons">search</span>
+                                    <p style={{ margin: 0, padding: 0, color: 'white', marginLeft: '1vw' }}>Buscar</p>
+                                </div>
+                            </NavLink>
+                            <NavLink activeClassName="selectedRoute" className="routerButton" exact to="/playlists">
+                                <div style={{ display: 'flex', alignItems: 'center' }} >
+                                    <span className="material-icons">library_music</span>
+                                    <p style={{ margin: 0, padding: 0, color: 'white', marginLeft: '1vw' }}>Mis Playlists</p>
+                                </div>
+                            </NavLink>
+                        </div>
+                    :
+                        <div className="buttonsContainer">
+                            <NavLink activeClassName="selectedRoute" className="routerButton" to="/home">
+                                <div style={{ display: 'flex', alignItems: 'center' }} >
+                                    <span className="material-icons">home</span>
+                                    <p style={{ margin: 0, padding: 0, color: 'white', marginLeft: '1vw' }}>Inicio</p>
+                                </div>
+                            </NavLink>
+                            <span className="routerButton">
+                                <div style={{ display: 'flex', alignItems: 'center' }} >
+                                        <span className="material-icons">search</span>
+                                        <p style={{ margin: 0, padding: 0, color: 'white', marginLeft: '1vw' }}>Buscar</p>
+                                </div>
+                            </span>
+                            <span className="routerButton">
+                                <div style={{ display: 'flex', alignItems: 'center' }} >
+                                    <span className="material-icons">library_music</span>
+                                    <p style={{ margin: 0, padding: 0, color: 'white', marginLeft: '1vw' }}>Mis Playlists</p>
+                                </div>
+                            </span> 
+                        </div>
+                }
+                <p className="playlistsTitle">
+                    Playlists
+                </p>
+                { sessionManager.isLogged() ?
+                    <div className="bottomContainer">
+                        <img src={sessionManager.getUserPhoto()} className="userProfileImage" alt="userProfile" />
+                        <p className="userProfileName">{ sessionManager.getUserName() }</p>
+                    </div>
+                :
+                    <div>
+
+                    </div>                
+                }
+            {/*
             <div className="container-fluid" style={{ padding: 0 }}>
                 <div className="sidenav">
                     <img src={logo} alt="app logo" className="logoImage" />
@@ -51,6 +111,8 @@ class Sidebar extends React.Component {
                         </div>
                     }
                 </div>
+            </div>
+            */}
             </div>
         );
     }
