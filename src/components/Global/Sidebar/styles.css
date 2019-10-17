@@ -28,6 +28,7 @@ body {
 .buttonsContainer span {
   display: block;
   color: white;
+  cursor: pointer;
 }
 
 .routerButton {
@@ -51,8 +52,10 @@ body {
 }
 
 .bottomContainer {
-  width: 80%;
-  margin-left: 10%;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  bottom: 3%;
   display: flex;
   position: absolute;
   align-items: center;
@@ -68,6 +71,32 @@ body {
   color: white;
   padding: 0;
   margin: 0;
+}
+
+.bottomButtons {
+  display: flex;
+  width: 80%;  
+  flex-direction: column;
+  position: absolute;
+  margin-left: 10%;
+  margin-right: 10%;
+  bottom: 0;
+}
+
+.bottomButton {
+  background: none;
+  border: none;
+  background-color: rgba(59, 182, 135, 1);
+  font-weight: bold;
+  margin-bottom: 1vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 2px;
+  color: white;
+}
+
+.bottomButton:hover {
+  background-color: rgba(59, 182, 135, 0.9);  
 }
 
 /*/////////////////////////////////*/

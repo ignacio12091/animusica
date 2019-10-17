@@ -73,8 +73,15 @@ class Sidebar extends React.Component {
                         <p className="userProfileName">{ sessionManager.getUserName() }</p>
                     </div>
                 :
-                    <div>
-
+                    <div className="bottomContainer">
+                        <div className="bottomButtons">
+                            <button className="bottomButton">
+                                <NavLink exact to="/login"><span style={{ color: 'white' }}>Iniciar sesión</span></NavLink>
+                            </button>
+                            <button className="bottomButton">
+                                <NavLink exact to="/register"><span style={{ color: 'white' }}>Registrarse</span></NavLink>
+                            </button>
+                        </div>
                     </div>                
                 }
             {/*
