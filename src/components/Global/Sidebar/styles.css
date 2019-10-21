@@ -60,6 +60,7 @@ body {
 .playlistsTitle {
   color: white;
   margin-top: 10%;
+  margin-left: 8%;
 }
 
 .bottomContainer {
@@ -73,6 +74,7 @@ body {
 }
 
 .userProfileImage {
+  margin-left: 10%;
   width: 20%;
   border-radius: 20px;
   margin-right: 1vw;
@@ -81,6 +83,7 @@ body {
 .userProfileName {
   color: white;
   padding: 0;
+  margin-right: 10%;
   margin: 0;
 }
 
@@ -112,6 +115,7 @@ body {
 
 .addPlaylistContainer {
   display: flex;
+  margin-left: 8%;
   flex-direction: row;
 }
 

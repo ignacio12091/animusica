@@ -157,7 +157,7 @@ class MainView extends React.Component {
 
     renderTopOptions() {
         const response = (
-            <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', color: 'white', backgroundColor: 'rgb(13, 58, 79)', paddingTop: '4%', paddingRight: '10%', paddingLeft: '10%', paddingBottom: '4%' }}>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', color: 'white', backgroundColor: 'rgb(13, 58, 79)', paddingTop: '6.5%', paddingRight: '10%', paddingLeft: '10%', paddingBottom: '4%' }}>
                 {/*
                 <NavLink activeClassName="selectedOption" exact to="/home/mostvisited">
                     <span className="music-style-btn">
@@ -182,7 +182,6 @@ class MainView extends React.Component {
     }
 
     render() {
-        console.log(this.props.song)
         return (
             <div>
                 <Sidebar />
