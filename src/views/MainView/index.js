@@ -150,33 +150,29 @@ class MainView extends React.Component {
             }
         } else {
             return (
-                <Loader
-                    style={{ margin: 'auto' }}
-                    type="Audio"
-                    color="#c70039"
-                    height="100%"
-                    width="100%"
-                />
+                null
             );
         }
     }
 
     renderTopOptions() {
         const response = (
-            <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', color: 'white', backgroundColor: 'rgb(10, 10, 10)', paddingTop: '4%', paddingRight: '10%', paddingLeft: '10%', paddingBottom: '4%' }}>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', color: 'white', backgroundColor: 'rgb(13, 58, 79)', paddingTop: '4%', paddingRight: '10%', paddingLeft: '10%', paddingBottom: '4%' }}>
+                {/*
                 <NavLink activeClassName="selectedOption" exact to="/home/mostvisited">
                     <span className="music-style-btn">
                         Más visitados
                     </span>
                 </NavLink>
-                <NavLink activeClassName="selectedOption" exact to="/home/bestranked" className="music-style-btn">
-                        <span className="music-style-btn">
-                        Mejor puntuados
-                    </span>
-                </NavLink>
+                */}
                 <NavLink activeClassName="selectedOption" exact to="/home/genres" className="music-style-btn">
                     <span className="music-style-btn">
-                        Géneros
+                        Ordenar por género
+                    </span>
+                </NavLink>
+                <NavLink activeClassName="selectedOption" exact to="/home/bestranked" className="music-style-btn">
+                    <span className="music-style-btn">
+                        Ordenar por puntuación
                     </span>
                 </NavLink>
             </div>

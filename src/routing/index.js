@@ -10,7 +10,7 @@ import Player from './../components/Global/Player';
 import Register from './../views/Register';
 import './styles.css';
 
-const ReRoute = () => <Redirect exact from="/" to="/home/mostvisited" />
+const ReRoute = () => <Redirect exact from="/" to="/home/genres" />
 
 const routing = (
     <Router>

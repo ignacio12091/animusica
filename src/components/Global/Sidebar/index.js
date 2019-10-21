@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
 
     render() {
         return (
-            <div className="sidenav">
+            <div className="sidenav degreeBackground">
                 <img src={logo} className="appLogo" alt="logo" />
                 {
                     sessionManager.isLogged() ?
@@ -41,6 +41,15 @@ class Sidebar extends React.Component {
                                     <p style={{ margin: 0, padding: 0, color: 'white', marginLeft: '1vw' }}>Mis Playlists</p>
                                 </div>
                             </NavLink>
+                            <div>
+                                <p className="playlistsTitle">
+                                    Playlists
+                                </p>
+                                <div className="addPlaylistContainer">
+                                    <span className="material-icons addPlaylistButton">add</span>
+                                    <p>Crear playlist</p>
+                                </div>
+                            </div>
                         </div>
                     :
                         <div className="buttonsContainer">
@@ -64,9 +73,6 @@ class Sidebar extends React.Component {
                             </span> 
                         </div>
                 }
-                <p className="playlistsTitle">
-                    Playlists
-                </p>
                 { sessionManager.isLogged() ?
                     <div className="bottomContainer">
                         <img src={sessionManager.getUserPhoto()} className="userProfileImage" alt="userProfile" />

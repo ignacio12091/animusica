@@ -1,11 +1,11 @@
 body {
-    background-color: rgb(15, 15, 15);
+    background-color: rgb(13, 58, 79) !important;
 }
 
 .music-style-btn {
     white-space: nowrap;
     padding: 0;
-    color: #9d0b28;
+    color: rgba(255, 255, 255, 0.7);
     font-weight: bold;
     border: none;
     background: none;
@@ -15,8 +15,7 @@ body {
 }
 
 .music-style-btn:hover {
-    color: rgba(236, 97, 95, 0.7);
-    transform: scale(1.01);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;  
 }
 
@@ -33,7 +32,7 @@ body {
 }
 
 .selectedOption span{
-    color: #ec625f;
+    color: rgba(255, 255, 255, 1);
     transform: scale(1.05);
     text-decoration: none;     
 }
