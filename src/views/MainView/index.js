@@ -36,7 +36,7 @@ class MainView extends React.Component {
             case "bestranked": 
                 this.getBestRanked()
             break;
-            case "genres": 
+            case "genres":
                 this.getGenres()
             break;
             default:
@@ -62,15 +62,17 @@ class MainView extends React.Component {
     }
 
     getGenres() {
-        this.setState({ isFetchingGenres: true });
-        axios.get('http://localhost/genres')    
-            .then((response) => {
-                this.setState({ data: response.data, isFetchingGenres: false });
-            })
-            .catch((error) => {
-                console.log('error: ', error)
-                this.setState({ errorFetchingGenres: true, isFetchingGenres: false });
-            })
+        if (!this.state.data) {
+            this.setState({ isFetchingGenres: true });
+            axios.get('http://localhost/genres')    
+                .then((response) => {
+                    this.setState({ data: response.data, isFetchingGenres: false });
+                })
+                .catch((error) => {
+                    console.log('error: ', error)
+                    this.setState({ errorFetchingGenres: true, isFetchingGenres: false });
+                })
+        }
     }
 
     getBestRanked() {
@@ -127,14 +129,17 @@ class MainView extends React.Component {
                             });
                             return(result);
                         case "genres": 
-                            this.state.data.forEach((item) => {
-                                result.push(
-                                    <button key={item.id} className="song" style={{ width: '30%', height: '5vh', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '2.5%', marginBottom: '2.5%', justifyContent: 'center' }} >
-                                        <p style={{ width: '100%', color: 'rgb(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
-                                            {item.nombre} 
-                                        </p>
-                                    </button>
-                                );
+                            this.state.data.forEach((element) => {
+                                element.songs.forEach((item) => {
+                                    result.push(
+                                        <button key={item.id} className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item)}}>
+                                            <img src={item.link_imagen} style={{ }} alt="" />
+                                            <p style={{ textOverflow: 'ellipsis', color: 'rgba(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
+                                                {item.nombre}
+                                            </p>
+                                        </button>
+                                    );
+                                })
                             });
                             return(result);
                         default:
