@@ -115,16 +115,20 @@ class MainView extends React.Component {
                             });
                             return(result);
                         case "bestranked": 
-                            this.state.data.forEach((item) => {
-                                result.push(
-                                    <button key={item.id} className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item)}}>
-                                        <img src={item.link_imagen} style={{ }} alt="" />
-                                        <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
-                                            {item.nombre} 
-                                        </p>
-                                    </button>
-                                );
-                            });
+                            if (this.state.data.length > 0) {
+                                this.state.data.forEach((item) => {
+                                    result.push(
+                                        <button key={item.id} className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item)}}>
+                                            <img src={item.link_imagen} style={{ }} alt="" />
+                                            <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
+                                                {item.nombre} 
+                                            </p>
+                                        </button>
+                                    );
+                                });
+                            } else {
+                                result.push(<h1 style={{ color: 'white' }}>No hay canciones puntuadas por el momento</h1>)
+                            }
                             return(result);
                         case "genres": 
                             this.state.data.forEach((item) => {
