@@ -4,20 +4,17 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import { setSong } from '../../actions/song';
+import { connect } from 'react-redux';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Sidebar from './../../components/Global/Sidebar';
 import sessionManager from './../../session/sessionManager';
-
-/* sessionStorage.setItem('myData', "nachox");
-
-console.log(sessionStorage.getItem('myData')); */
 
 class MainView extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            selectedSong: "",
             data: null,
             errorFetchingMostVisited: false,
             isFetchingMostVisited: false,
@@ -25,6 +22,7 @@ class MainView extends React.Component {
             errorFetchingBestRanked: false,
             isFetchingGenres: false,
             errorFetchingGenres: false,
+            songSelected: false,
         };
 
         this.onPressSong = this.onPressSong.bind(this)
@@ -55,7 +53,12 @@ class MainView extends React.Component {
     }
 
     onPressSong(event, recurso) {
-        this.setState({ selectedSong: recurso });
+        if (sessionManager.isLogged()) {
+            this.setState({ songSelected: true });
+            this.props.setSong(recurso)
+        } else {
+            alert("Necesitas haber iniciado sesión para escuchar una canción")
+        }
     }
 
     getGenres() {
@@ -102,7 +105,7 @@ class MainView extends React.Component {
                         case "mostvisited":
                             this.state.data.forEach((item) => {
                                 result.push(
-                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
+                                    <button key={item.id} className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item)}}>
                                         <img src={item.link_imagen} style={{ }} alt="" />
                                         <p style={{ textOverflow: 'ellipsis', color: 'rgba(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
                                             {item.nombre} 
@@ -112,21 +115,25 @@ class MainView extends React.Component {
                             });
                             return(result);
                         case "bestranked": 
-                            this.state.data.forEach((item) => {
-                                result.push(
-                                    <button className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item.link_recurso)}}>
-                                        <img src={item.link_imagen} style={{ }} alt="" />
-                                        <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
-                                            {item.nombre} 
-                                        </p>
-                                    </button>
-                                );
-                            });
+                            if (this.state.data.length > 0) {
+                                this.state.data.forEach((item) => {
+                                    result.push(
+                                        <button key={item.id} className="song" style={{ width: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5%', marginBottom: '2.5%' }} onClick={(e) => {this.onPressSong(e, item)}}>
+                                            <img src={item.link_imagen} style={{ }} alt="" />
+                                            <p style={{ textOverflow: 'ellipsis', color: 'rgb(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
+                                                {item.nombre} 
+                                            </p>
+                                        </button>
+                                    );
+                                });
+                            } else {
+                                result.push(<h1 style={{ color: 'white' }}>No hay canciones puntuadas por el momento</h1>)
+                            }
                             return(result);
                         case "genres": 
                             this.state.data.forEach((item) => {
                                 result.push(
-                                    <button className="song" style={{ width: '30%', height: '5vh', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '2.5%', marginBottom: '2.5%', justifyContent: 'center' }} >
+                                    <button key={item.id} className="song" style={{ width: '30%', height: '5vh', display: 'flex', flexDirection: 'column', backgroundColor: 'rgb(30,30,30)', borderRadius: 5, alignItems: 'center', marginLeft: '2.5%', marginBottom: '2.5%', justifyContent: 'center' }} >
                                         <p style={{ width: '100%', color: 'rgb(230, 230, 230)', margin: '2%', fontWeight: 'bold' }}>
                                             {item.nombre} 
                                         </p>
@@ -183,15 +190,16 @@ class MainView extends React.Component {
     }
 
     render() {
+        console.log(this.props.song)
         return (
             <div>
-                <Sidebar song={this.state.selectedSong} />
+                <Sidebar />
                 <div style={{ paddingLeft: '20%', paddingBottom: this.state.selectedSong ? "10vh" : "0"}}>
                     <div className="container-fluid" style={{ padding: 0, textAlign: 'center' }}>
                         <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'space-between' }} role="group" aria-label="Basic example">
                             {this.renderTopOptions()}
                         </div>
-                        <div style={{ width: '100%', marginTop: '2%', display: 'flex', flexWrap: 'wrap', paddingRight: '5%' }}>
+                        <div style={{ width: '100%', marginTop: '2%', display: 'flex', flexWrap: 'wrap', paddingRight: '5%', paddingBottom: this.props.song.song ? '15vh': '' }}>
                             {this.renderContent(this.props.match.params.id)}
                         </div>
                     </div>
@@ -201,4 +209,15 @@ class MainView extends React.Component {
     }
 }
 
-export default MainView;
+const mapStateToProps = state => ({
+    song: state.song,
+})
+  
+const mapDispatchToProps = dispatch => ({
+    setSong: song => dispatch(setSong(song))
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MainView)

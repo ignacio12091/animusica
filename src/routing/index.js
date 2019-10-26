@@ -6,7 +6,7 @@ import Playlists from './../views/Playlists';
 import NotFound from './../views/NotFound';
 import Login from './../views/Login';
 import Search from './../views/Search';
-import Sidebar from './../components/Global/Sidebar';
+import Player from './../components/Global/Player';
 import Register from './../views/Register';
 import './styles.css';
 
@@ -14,6 +14,7 @@ const ReRoute = () => <Redirect exact from="/" to="/home/mostvisited" />
 
 const routing = (
     <Router>
+        <Player />
         <Switch>
             <Route path="/" component={ReRoute} exact />
             <Route path="/home/:id" component={MainView} exact />

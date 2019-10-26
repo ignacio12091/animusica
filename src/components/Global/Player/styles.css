@@ -1,0 +1,98 @@
+.player {
+    height: 15vh;
+    background-color: rgba(5, 5, 5, 0.96);
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: 20%;
+    padding-right: 20%;
+    flex-direction: row;
+    color: white;
+    font-weight: bold;
+}
+
+.closeSong {
+    position: absolute;
+    left: 0;
+    font-size: 3vh;
+}
+
+.closeSong:hover {
+    cursor: pointer;
+}
+
+.addButton {
+    cursor: pointer;
+    position: fixed;
+    bottom: 5vh;
+    right: 2vw;
+    align-self: flex-end;
+}
+
+.modalBackground {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.72);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addToPlaylistModal {
+    background-color: #252525;
+    width: 45vw;
+    border-radius: 4px;
+    padding: 1vw;
+    color: white;
+}
+
+.addToPlaylistModal h3 {
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+.playlistToAddSong {
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    border-radius: 4px;
+    padding-left: 1vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.playlistToAddSong p {
+    flex: 9;
+    margin: 0;
+    padding: 0;
+}
+
+.playlistToAddSong button {
+    flex: 1;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cancelButton {
+    background-color: white;
+    border: 1.2px solid black;
+    margin-top: 1vh;
+    flex: 1;
+    height: 6vh;
+}
+
+.cancelButton:hover {
+    background-color: #ec625f;
+}

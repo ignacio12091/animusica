@@ -4,14 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
 class Modal extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
- 
-        };
-    }
-
     render() {
         return (
             <div style={{ height: '100vh', backgroundColor: 'rgba(0, 0, 0, 0.7)', position: 'absolute', zIndex: 1, width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
