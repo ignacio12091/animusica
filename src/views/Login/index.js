@@ -77,14 +77,7 @@ class Login extends React.Component {
                         Iniciar sesión
                     </button>
                 </div>
-            </div> 
-/*             <div>
-                <input type="text" value={this.state.email} onChange={this.onChangeEmail} />
-                <input type="text" value={this.state.password} onChange={this.onChangePassword} />
-                <button onClick={(e) => {this.onPressLogin(e)}}>
-                    login
-                </button>
-            </div>     */
+            </div>
         );
     }
 }

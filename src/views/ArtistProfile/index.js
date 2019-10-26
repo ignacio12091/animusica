@@ -3,12 +3,6 @@ import './styles.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import song1 from './../../assets/song2.jpg';
 import kengo from './../../assets/kengo.jpg';
-import darkness from './../../assets/oscuridad.PNG';
-import noCoros from './../../assets/noCoros.PNG';
-import nina from './../../assets/niñaMano.PNG';
-import cartas from './../../assets/cartas.PNG';
-import abranPaso from './../../assets/abranPaso.PNG';
-
 class ArtistProfile extends React.Component {
     
     render() {
